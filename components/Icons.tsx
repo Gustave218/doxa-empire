@@ -87,50 +87,26 @@ export const MailIcon = ({ size, className }: P) => (
   <svg {...base(size)} className={className}><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3.5 6 8.5 7 8.5-7" /></svg>
 );
 
-/* ---------------- Payment marks ---------------- */
+/* ---------------- Payment marks ----------------
+   Official logos from Wikimedia Commons, stored in /public/pay. */
 
 type M = { height?: number; className?: string };
 
-export const VisaMark = ({ height = 22, className }: M) => (
-  <svg viewBox="0 0 64 22" height={height} className={className} role="img" aria-label="Visa">
-    <text x="32" y="18" textAnchor="middle" fontFamily="Arial Black, Arial, sans-serif" fontWeight="900" fontStyle="italic" fontSize="21" letterSpacing="-0.5" fill="#1A1F71">VISA</text>
-    <path d="M6 20.5h9" stroke="#F7B600" strokeWidth="2" />
-  </svg>
-);
+const mark = (src: string, label: string, ratio: number) =>
+  function Mark({ height = 22, className }: M) {
+    return (
+      <span className={`pay-mark ${className ?? ""}`} style={{ height: height + 8, width: Math.round(height * ratio) + 14 }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={src} alt={label} />
+      </span>
+    );
+  };
 
-export const MastercardMark = ({ height = 22, className }: M) => (
-  <svg viewBox="0 0 36 22" height={height} className={className} role="img" aria-label="Mastercard">
-    <circle cx="13" cy="11" r="10" fill="#EB001B" />
-    <circle cx="23" cy="11" r="10" fill="#F79E1B" />
-    <path d="M18 2.3a10 10 0 0 1 0 17.4 10 10 0 0 1 0-17.4Z" fill="#FF5F00" />
-  </svg>
-);
-
-export const MpesaMark = ({ height = 22, className }: M) => (
-  <svg viewBox="0 0 74 22" height={height} className={className} role="img" aria-label="M-Pesa">
-    <rect width="74" height="22" rx="4" fill="#4CAF33" />
-    <rect x="4" y="4" width="9" height="14" rx="2" fill="#fff" />
-    <rect x="6" y="6.5" width="5" height="7" rx="0.6" fill="#4CAF33" />
-    <text x="43" y="15.5" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="800" fontSize="11.5" fill="#fff">M-PESA</text>
-  </svg>
-);
-
-export const AirtelMark = ({ height = 22, className }: M) => (
-  <svg viewBox="0 0 74 22" height={height} className={className} role="img" aria-label="Airtel Money">
-    <rect width="74" height="22" rx="4" fill="#E40000" />
-    <path d="M11 5.5c3.6-.4 5.6 1.8 4.8 5-.7 2.9-3.8 5.6-7 5.9 1.9-1 3.7-3 3.8-5 .1-1.6-1.2-2.7-3.2-2.6l1.6-3.3Z" fill="#fff" />
-    <text x="45" y="15" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="10.5" fill="#fff">airtel money</text>
-  </svg>
-);
-
-export const OrangeMark = ({ height = 22, className }: M) => (
-  <svg viewBox="0 0 74 22" height={height} className={className} role="img" aria-label="Orange Money">
-    <rect width="74" height="22" rx="4" fill="#000" />
-    <rect x="4" y="4" width="14" height="14" fill="#FF7900" />
-    <rect x="6" y="13.5" width="10" height="2" fill="#fff" />
-    <text x="46" y="15" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="10.5" fill="#FF7900">orange money</text>
-  </svg>
-);
+export const VisaMark = mark("/pay/visa.svg", "Visa", 2.2);
+export const MastercardMark = mark("/pay/mastercard.svg", "Mastercard", 1.5);
+export const MpesaMark = mark("/pay/mpesa.svg", "M-Pesa", 2.4);
+export const AirtelMark = mark("/pay/airtel.svg", "Airtel Money", 1.4);
+export const OrangeMark = mark("/pay/orange-money.svg", "Orange Money", 2.6);
 
 export const CardMarks = ({ height = 22 }: M) => (
   <span className="marks"><VisaMark height={height} /><MastercardMark height={height} /></span>

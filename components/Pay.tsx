@@ -4,6 +4,7 @@
 // mobile money APIs (Daraja for M-Pesa, Airtel Money, Orange Money) later.
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { CardMarks, MobileMarks, VisaMark, MastercardMark, MpesaMark, AirtelMark, OrangeMark, CloseIcon, LockIcon, CheckIcon, CardIcon, PhoneIcon } from "./Icons";
 
 export type Method = "card" | "mobile";
@@ -61,7 +62,8 @@ export function PayModal({ method, amount, title, onClose, onPaid }: {
 
   const p = PROVIDERS.find((x) => x.id === provider)!;
 
-  return (
+  // Rendered into <body> so its form never nests inside a page form (e.g. checkout).
+  return createPortal(
     <div className="modal-scrim" onClick={onClose}>
       <div className="modal" role="dialog" aria-modal="true" aria-label={method === "card" ? "Pay with card" : "Pay with mobile money"} ref={ref} onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose} aria-label="Close"><CloseIcon size={20} /></button>
@@ -117,6 +119,7 @@ export function PayModal({ method, amount, title, onClose, onPaid }: {
           </form>
         )}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

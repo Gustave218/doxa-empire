@@ -197,7 +197,7 @@ export const products: Product[] = [
     price: { KES: 1500, USD: 12 },
     short: "Test your idea with real buyers before you spend money.",
     description: "A practical guide to checking demand, making a first offer and getting paid.",
-    cover: { bg: "#1a1714", fg: "#f6f1ea", accent: "#c9a46a" }, pages: 84, badge: "Bestseller",
+    cover: { bg: "#111111", fg: "#ffffff", accent: "#e4318c" }, pages: 84, badge: "Bestseller",
   },
   {
     slug: "selling-on-whatsapp", type: "ebook",
@@ -205,7 +205,7 @@ export const products: Product[] = [
     price: { KES: 1200, USD: 9 },
     short: "Catalogues, status updates and replies that close sales.",
     description: "Turn the app your customers already use into your shop.",
-    cover: { bg: "#0f3d2e", fg: "#f6f1ea", accent: "#9fd8b4" }, pages: 62, badge: "New",
+    cover: { bg: "#e4318c", fg: "#ffffff", accent: "#111111" }, pages: 62, badge: "New",
   },
   {
     slug: "the-bangladesh-sourcing-guide", type: "ebook",
@@ -213,7 +213,7 @@ export const products: Product[] = [
     price: { KES: 2500, USD: 19 },
     short: "Supplier lists, price benchmarks and shipping checklists.",
     description: "Everything you need to place your first garment order from Dhaka with confidence.",
-    cover: { bg: "#7a1f3d", fg: "#fbeef2", accent: "#f2b8c9" }, pages: 112,
+    cover: { bg: "#f6f6f7", fg: "#111111", accent: "#e4318c" }, pages: 112,
   },
   {
     slug: "pricing-without-fear", type: "ebook",
@@ -221,7 +221,7 @@ export const products: Product[] = [
     price: { KES: 1200, USD: 9 },
     short: "Work out a price that covers costs and pays you.",
     description: "Costs, margins and how to say your price out loud.",
-    cover: { bg: "#efe7da", fg: "#1a1714", accent: "#a2783f" }, pages: 56,
+    cover: { bg: "#2b2b2b", fg: "#ffffff", accent: "#ff4fa3" }, pages: 56,
   },
   {
     slug: "marketing-on-a-shoestring", type: "ebook",
@@ -229,7 +229,7 @@ export const products: Product[] = [
     price: { KES: 1500, USD: 12 },
     short: "50 low-cost ways to get your brand seen.",
     description: "Content ideas, collaboration scripts and ad templates for small budgets.",
-    cover: { bg: "#1d2b4f", fg: "#eef2fb", accent: "#e4318c" }, pages: 74,
+    cover: { bg: "#ffd6ea", fg: "#111111", accent: "#b0145f" }, pages: 74,
   },
   {
     slug: "simple-books-small-shops", type: "ebook",
@@ -237,7 +237,7 @@ export const products: Product[] = [
     price: { KES: 1000, USD: 8 },
     short: "Track every shilling in one notebook or one sheet.",
     description: "Bookkeeping without jargon.",
-    cover: { bg: "#c9a46a", fg: "#1a1714", accent: "#1a1714" }, pages: 48,
+    cover: { bg: "#b0145f", fg: "#ffffff", accent: "#ffd6ea" }, pages: 48,
   },
 ];
 

@@ -7,7 +7,7 @@ import { PayButtons } from "./Pay";
 import { LockIcon, PlayIcon, CloseIcon, CheckIcon, BagIcon, BookIcon } from "./Icons";
 
 const TONES = [
-  ["#1a1714", "#3b2f25"], ["#0f3d2e", "#1f6b50"], ["#3d1027", "#7a1f3d"], ["#1d2b4f", "#36508f"], ["#4a3416", "#a2783f"],
+  ["#111111", "#2b2b2b"], ["#b0145f", "#e4318c"], ["#1f1f1f", "#3a3a3a"], ["#e4318c", "#ff5aa8"], ["#0d0d0d", "#b0145f"],
 ];
 
 export function VideoCard({ p, index }: { p: Product; index: number }) {
