@@ -41,7 +41,7 @@ export function ProductCard({ p, priority = false }: { p: Product; priority?: bo
           {p.was && <s className="muted">{formatPrice(p.was, currency)}</s>}
         </p>
         <button className={`btn btn-block add-btn ${added ? "added" : ""}`} onClick={quickAdd} disabled={soldOut}>
-          {soldOut ? "Sold out" : added ? <><CheckIcon size={16} /> Added</> : <><BagIcon size={16} /> Add to bag</>}
+          {soldOut ? "Épuisé" : added ? <><CheckIcon size={16} /> Ajouté</> : <><BagIcon size={16} /> Ajouter au panier</>}
         </button>
       </div>
     </article>

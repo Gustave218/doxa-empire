@@ -26,15 +26,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <nav className="wrap crumbs" aria-label="Breadcrumb">
-        <Link href="/">Home</Link><span>/</span><Link href="/shop">Shop</Link><span>/</span>
+      <nav className="wrap crumbs" aria-label="Fil d'Ariane">
+        <Link href="/">Accueil</Link><span>/</span><Link href="/shop">Boutique</Link><span>/</span>
         <Link href={`/shop?c=${p.category}`}>{p.category}</Link><span>/</span><span aria-current="page">{p.name}</span>
       </nav>
       <ProductDetail slug={p.slug} />
       <section className="wrap section">
         <div className="section-head">
-          <h2 className="serif h2">You may also love</h2>
-          <Link href="/shop" className="link-arrow">View all</Link>
+          <h2 className="serif h2">Vous aimerez aussi</h2>
+          <Link href="/shop" className="link-arrow">Tout voir</Link>
         </div>
         <div className="grid-products">{more.map((m) => <ProductCard key={m.slug} p={m} />)}</div>
       </section>

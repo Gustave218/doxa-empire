@@ -7,7 +7,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { useCart } from "@/components/CartProvider";
 import { SearchIcon, CloseIcon } from "@/components/Icons";
 
-const CATS: ("All" | Category)[] = ["All", "Dresses", "Slippers"];
+const CATS: ("All" | Category)[] = ["All", "Robes", "Sandales"];
 type Sort = "featured" | "low" | "high" | "rating";
 
 export function ShopBrowser() {
@@ -33,33 +33,33 @@ export function ShopBrowser() {
   return (
     <section className="wrap section-sm">
       <div className="toolbar">
-        <div className="chips" role="tablist" aria-label="Category">
+        <div className="chips" role="tablist" aria-label="Catégorie">
           {CATS.map((c) => (
             <button key={c} role="tab" aria-selected={cat === c} className={`chip ${cat === c ? "on" : ""}`} onClick={() => setCat(c)}>
-              {c} <span className="chip-n">{c === "All" ? shopProducts.length : shopProducts.filter((p) => p.category === c).length}</span>
+              {c === "All" ? "Tout" : c} <span className="chip-n">{c === "All" ? shopProducts.length : shopProducts.filter((p) => p.category === c).length}</span>
             </button>
           ))}
         </div>
         <div className="toolbar-right">
           <label className="search-field">
             <SearchIcon size={18} />
-            <span className="sr-only">Search products</span>
-            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search the shop" />
-            {q && <button onClick={() => setQ("")} aria-label="Clear search"><CloseIcon size={16} /></button>}
+            <span className="sr-only">Rechercher des produits</span>
+            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Rechercher dans la boutique" />
+            {q && <button onClick={() => setQ("")} aria-label="Effacer la recherche"><CloseIcon size={16} /></button>}
           </label>
           <label className="select">
-            <span className="sr-only">Sort by</span>
+            <span className="sr-only">Trier par</span>
             <select value={sort} onChange={(e) => setSort(e.target.value as Sort)}>
-              <option value="featured">Featured</option>
-              <option value="low">Price: low to high</option>
-              <option value="high">Price: high to low</option>
-              <option value="rating">Top rated</option>
+              <option value="featured">En vedette</option>
+              <option value="low">Prix croissant</option>
+              <option value="high">Prix décroissant</option>
+              <option value="rating">Mieux notés</option>
             </select>
           </label>
         </div>
       </div>
 
-      <p className="muted small results" aria-live="polite">{list.length} {list.length === 1 ? "piece" : "pieces"}{q && <> for “{q}”</>}</p>
+      <p className="muted small results" aria-live="polite">{list.length} {list.length === 1 ? "article" : "articles"}{q && <> pour « {q} »</>}</p>
 
       {list.length ? (
         <div className="grid-products">
@@ -67,8 +67,8 @@ export function ShopBrowser() {
         </div>
       ) : (
         <div className="empty">
-          <p className="serif">Nothing matches “{q}”.</p>
-          <button className="btn btn-outline" onClick={() => { setQ(""); setCat("All"); }}>Clear filters</button>
+          <p className="serif">Aucun résultat pour « {q} ».</p>
+          <button className="btn btn-outline" onClick={() => { setQ(""); setCat("All"); }}>Effacer les filtres</button>
         </div>
       )}
     </section>

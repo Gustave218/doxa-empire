@@ -25,7 +25,7 @@ export function PayButtons({ amount, title, onPaid, disabled, onBeforeOpen }: {
     <>
       <div className="pay-buttons">
         <button type="button" className="pay-btn" onClick={() => open("card")} disabled={disabled}>
-          <span className="pay-btn-label"><CardIcon size={20} /> Pay with card</span>
+          <span className="pay-btn-label"><CardIcon size={20} /> Payer par carte</span>
           <CardMarks height={20} />
         </button>
         <button type="button" className="pay-btn" onClick={() => open("mobile")} disabled={disabled}>
@@ -65,37 +65,37 @@ export function PayModal({ method, amount, title, onClose, onPaid }: {
   // Rendered into <body> so its form never nests inside a page form (e.g. checkout).
   return createPortal(
     <div className="modal-scrim" onClick={onClose}>
-      <div className="modal" role="dialog" aria-modal="true" aria-label={method === "card" ? "Pay with card" : "Pay with mobile money"} ref={ref} onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose} aria-label="Close"><CloseIcon size={20} /></button>
+      <div className="modal" role="dialog" aria-modal="true" aria-label={method === "card" ? "Payer par carte" : "Payer par mobile money"} ref={ref} onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose} aria-label="Fermer"><CloseIcon size={20} /></button>
 
         {stage === "done" ? (
           <div className="modal-done">
             <span className="done-tick"><CheckIcon size={30} /></span>
-            <h2 className="serif">Payment received</h2>
+            <h2 className="serif">Paiement reçu</h2>
             <p className="muted">{title}<br /><strong>{amount}</strong></p>
-            <p className="demo-note">Demo mode: no money was taken. Live payments will be connected soon.</p>
-            <button className="btn btn-block" onClick={onClose}>Done</button>
+            <p className="demo-note">Mode démo : aucun montant débité. Les paiements réels arrivent bientôt.</p>
+            <button className="btn btn-block" onClick={onClose}>Terminé</button>
           </div>
         ) : (
           <form onSubmit={submit}>
-            <p className="eyebrow">{method === "card" ? "Card payment" : "Mobile money"}</p>
+            <p className="eyebrow">{method === "card" ? "Paiement par carte" : "Mobile money"}</p>
             <h2 className="serif modal-title">{amount}</h2>
             <p className="muted small">{title}</p>
 
             {method === "card" ? (
               <>
                 <div className="modal-marks"><VisaMark height={26} /><MastercardMark height={26} /></div>
-                <div className="field"><label htmlFor="c-name">Name on card</label><input id="c-name" required autoComplete="cc-name" placeholder="Amina Wanjiru" /></div>
-                <div className="field"><label htmlFor="c-num">Card number</label><input id="c-num" required inputMode="numeric" autoComplete="cc-number" placeholder="4242 4242 4242 4242" maxLength={19} /></div>
+                <div className="field"><label htmlFor="c-name">Nom sur la carte</label><input id="c-name" required autoComplete="cc-name" placeholder="Amina Wanjiru" /></div>
+                <div className="field"><label htmlFor="c-num">Numéro de carte</label><input id="c-num" required inputMode="numeric" autoComplete="cc-number" placeholder="4242 4242 4242 4242" maxLength={19} /></div>
                 <div className="two">
-                  <div className="field"><label htmlFor="c-exp">Expiry</label><input id="c-exp" required autoComplete="cc-exp" placeholder="MM / YY" maxLength={7} /></div>
+                  <div className="field"><label htmlFor="c-exp">Expiration</label><input id="c-exp" required autoComplete="cc-exp" placeholder="MM / AA" maxLength={7} /></div>
                   <div className="field"><label htmlFor="c-cvc">CVC</label><input id="c-cvc" required inputMode="numeric" autoComplete="cc-csc" placeholder="123" maxLength={4} /></div>
                 </div>
               </>
             ) : (
               <>
                 <fieldset className="providers">
-                  <legend className="sr-only">Choose provider</legend>
+                  <legend className="sr-only">Choisir l'opérateur</legend>
                   {PROVIDERS.map(({ id, label, Mark }) => (
                     <label key={id} className={`provider ${provider === id ? "on" : ""}`}>
                       <input type="radio" name="provider" value={id} checked={provider === id} onChange={() => setProvider(id)} className="sr-only" />
@@ -105,17 +105,17 @@ export function PayModal({ method, amount, title, onClose, onPaid }: {
                   ))}
                 </fieldset>
                 <div className="field">
-                  <label htmlFor="m-phone">{p.label} number</label>
+                  <label htmlFor="m-phone">Numéro {p.label}</label>
                   <div className="prefix-input"><span>{p.prefix}</span><input id="m-phone" required type="tel" inputMode="tel" placeholder="712 345 678" /></div>
-                  <span className="hint">You will get a prompt on your phone to enter your PIN.</span>
+                  <span className="hint">Vous recevrez une demande sur votre téléphone pour saisir votre code PIN.</span>
                 </div>
               </>
             )}
 
             <button className="btn btn-block" disabled={stage === "processing"}>
-              {stage === "processing" ? <span className="spinner" aria-label="Processing" /> : <><LockIcon size={16} /> Pay {amount}</>}
+              {stage === "processing" ? <span className="spinner" aria-label="Traitement en cours" /> : <><LockIcon size={16} /> Payer {amount}</>}
             </button>
-            <p className="demo-note">Showcase only. Payment APIs are not connected yet.</p>
+            <p className="demo-note">Démonstration uniquement. Les API de paiement ne sont pas encore connectées.</p>
           </form>
         )}
       </div>

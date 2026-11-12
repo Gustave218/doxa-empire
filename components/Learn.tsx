@@ -21,13 +21,13 @@ export function VideoCard({ p, index }: { p: Product; index: number }) {
       <div className="video-thumb" style={{ background: `linear-gradient(135deg, ${a}, ${b})` }}>
         <span className="video-num">0{index + 1}</span>
         <p className="video-thumb-title serif">{p.name}</p>
-        <div className="video-thumb-meta"><span>{p.minutes} min</span><span>{p.chapters?.length} lessons</span><span>{p.level}</span></div>
+        <div className="video-thumb-meta"><span>{p.minutes} min</span><span>{p.chapters?.length} leçons</span><span>{p.level}</span></div>
         {owned ? (
-          <button className="play-big" onClick={() => setWatch("full")} aria-label={`Play ${p.name}`}><PlayIcon size={26} /></button>
+          <button className="play-big" onClick={() => setWatch("full")} aria-label={`Lire ${p.name}`}><PlayIcon size={26} /></button>
         ) : (
           <div className="locked">
-            <span className="lock-chip"><LockIcon size={14} /> Locked</span>
-            <button className="preview-btn" onClick={() => setWatch("preview")}><PlayIcon size={14} /> Watch free preview</button>
+            <span className="lock-chip"><LockIcon size={14} /> Verrouillé</span>
+            <button className="preview-btn" onClick={() => setWatch("preview")}><PlayIcon size={14} /> Voir l'extrait gratuit</button>
           </div>
         )}
         {p.badge && <span className="tag light">{p.badge}</span>}
@@ -44,12 +44,12 @@ export function VideoCard({ p, index }: { p: Product; index: number }) {
           ))}
         </ol>
         {owned ? (
-          <button className="btn btn-block" onClick={() => setWatch("full")}><PlayIcon size={16} /> Start watching</button>
+          <button className="btn btn-block" onClick={() => setWatch("full")}><PlayIcon size={16} /> Commencer</button>
         ) : (
           <>
             <div className="row-between price-row">
               <p className="price-lg">{money(p.price[currency], currency)}</p>
-              <button className="link small add-link" onClick={() => add({ slug: p.slug, qty: 1 })}><BagIcon size={14} /> Add to bag</button>
+              <button className="link small add-link" onClick={() => add({ slug: p.slug, qty: 1 })}><BagIcon size={14} /> Ajouter au panier</button>
             </div>
             <PayButtons amount={money(p.price[currency], currency)} title={p.name} onPaid={() => setOwned(true)} />
           </>
@@ -65,11 +65,11 @@ function VideoModal({ title, preview, onClose }: { title: string; preview: boole
     <div className="modal-scrim dark" onClick={onClose}>
       <div className="video-modal" role="dialog" aria-modal="true" aria-label={title} onClick={(e) => e.stopPropagation()}>
         <div className="row-between">
-          <p className="serif video-modal-title">{title}{preview && <span className="lock-chip">Preview</span>}</p>
-          <button className="icon-btn light" onClick={onClose} aria-label="Close video"><CloseIcon /></button>
+          <p className="serif video-modal-title">{title}{preview && <span className="lock-chip">Extrait</span>}</p>
+          <button className="icon-btn light" onClick={onClose} aria-label="Fermer la vidéo"><CloseIcon /></button>
         </div>
         <video src="/samples/preview.mp4" controls autoPlay playsInline />
-        <p className="small muted-light">Sample video for the showcase. Your real lessons will play here.</p>
+        <p className="small muted-light">Vidéo d'exemple. Vos vraies leçons seront diffusées ici.</p>
       </div>
     </div>
   );
@@ -99,14 +99,14 @@ export function EbookCard({ p }: { p: Product }) {
       <div className="ebook-body">
         <h3 className="serif h3">{p.name}</h3>
         <p className="muted">{p.short} {p.description}</p>
-        <p className="ebook-meta"><BookIcon size={16} /> PDF + ePub · {p.pages} pages · Instant download</p>
+        <p className="ebook-meta"><BookIcon size={16} /> PDF + ePub · {p.pages} pages · Téléchargement immédiat</p>
         {owned ? (
-          <a className="btn btn-block" href="#" onClick={(e) => e.preventDefault()}><CheckIcon size={16} /> Download your copy</a>
+          <a className="btn btn-block" href="#" onClick={(e) => e.preventDefault()}><CheckIcon size={16} /> Télécharger votre exemplaire</a>
         ) : (
           <>
             <div className="row-between price-row">
               <p className="price-lg">{money(p.price[currency], currency)}</p>
-              <button className="link small add-link" onClick={() => add({ slug: p.slug, qty: 1 })}><BagIcon size={14} /> Add to bag</button>
+              <button className="link small add-link" onClick={() => add({ slug: p.slug, qty: 1 })}><BagIcon size={14} /> Ajouter au panier</button>
             </div>
             <PayButtons amount={money(p.price[currency], currency)} title={`${p.name} (ebook)`} onPaid={() => setOwned(true)} />
           </>

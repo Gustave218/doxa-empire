@@ -730,3 +730,19 @@ em { font-style: normal; }
   .provider { padding: 10px 4px; font-size: 11px; }
   .pay-btn .marks { gap: 4px; }
 }
+
+/* ---------- Mobile overflow fixes (travel page) ---------- */
+html, body { overflow-x: clip; max-width: 100%; }
+.enquire-grid > *, .aud-grid > *, .two > *, .check-grid > *, .steps > *, .svc-grid > * { min-width: 0; }
+.field input, .field select, .field textarea { width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box; }
+.field input[type="date"] { -webkit-appearance: none; appearance: none; min-height: 48px; }
+.check span, .aud, .svc, .faq summary, .travel-hero h1 { overflow-wrap: anywhere; }
+@media (max-width: 480px) {
+  .check-grid { grid-template-columns: 1fr; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .seg button { font-size: 12px; padding: 10px 4px; }
+  .travel-sun { right: -220px; top: -220px; width: 380px; height: 380px; border-width: 50px; }
+  .travel-proof { gap: 24px; }
+  .aud { padding: 26px 20px; }
+  .cross-link { padding: 22px 18px; }
+}

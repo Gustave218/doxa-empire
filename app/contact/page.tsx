@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { ChatIcon, MailIcon, PinIcon, PhoneIcon } from "@/components/Icons";
 
-export const metadata: Metadata = { title: "Contact", description: "Talk to Doxa Empire on WhatsApp, email or visit us in Nairobi." };
+export const metadata: Metadata = { title: "Contact", description: "Écrivez à Doxa Empire sur WhatsApp, par email ou rendez nous visite à Nairobi." };
 
 // Contact details are placeholders until the client confirms them.
 const CHANNELS = [
-  { Icon: ChatIcon, t: "WhatsApp", d: "Fastest reply, 8am–9pm daily", v: "+254 700 000 000" },
-  { Icon: MailIcon, t: "Email", d: "We reply within one working day", v: "hello@doxaempire.co.ke" },
-  { Icon: PhoneIcon, t: "Call", d: "Mon–Sat, 9am–6pm EAT", v: "+254 700 000 000" },
-  { Icon: PinIcon, t: "Visit", d: "Showroom by appointment", v: "Westlands, Nairobi" },
+  { Icon: ChatIcon, t: "WhatsApp", d: "Réponse la plus rapide, de 8 h à 21 h tous les jours", v: "+254 707 898 058" },
+  { Icon: MailIcon, t: "Email", d: "Réponse sous un jour ouvré", v: "hello@doxaempire.co.ke" },
+  { Icon: PhoneIcon, t: "Appel", d: "Du lundi au samedi, de 9 h à 18 h (heure de Nairobi)", v: "+254 707 898 058" },
+  { Icon: PinIcon, t: "Visite", d: "Showroom sur rendez vous", v: "Westlands, Nairobi" },
 ];
 
 export default function ContactPage() {
@@ -16,8 +16,8 @@ export default function ContactPage() {
     <div className="wrap section">
       <div className="section-head center">
         <p className="eyebrow">Contact</p>
-        <h1 className="serif display-xl">We&apos;d love to <em>hear from you.</em></h1>
-        <p className="lede center-block">Questions about an order, a course or your move to Kenya? Reach us however suits you.</p>
+        <h1 className="serif display-xl">Nous serions ravis <em>de vous lire.</em></h1>
+        <p className="lede center-block">Une question sur une commande, un cours ou votre installation au Kenya ? Contactez nous comme vous préférez.</p>
       </div>
       <div className="contact-grid">
         {CHANNELS.map(({ Icon, t, d, v }) => (
@@ -29,7 +29,7 @@ export default function ContactPage() {
           </div>
         ))}
       </div>
-      <p className="center small muted">Contact details shown are placeholders for the preview.</p>
+      <p className="center small muted">Certaines coordonnées sont provisoires.</p>
     </div>
   );
 }

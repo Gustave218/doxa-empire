@@ -5,16 +5,16 @@ import { EbookCover } from "@/components/Learn";
 import { ArrowIcon, PlayIcon, LockIcon, CapIcon, HomeIcon, SunIcon, StarIcon, CardMarks, MobileMarks } from "@/components/Icons";
 
 const SERVICES = [
-  { href: "/shop", n: "01", t: "The Shop", d: "Statement dresses, leather slides and handmade Maasai slippers.", img: "/products/dress-magenta-bow.webp", cta: "Shop the edit" },
-  { href: "/coaching", n: "02", t: "Coaching", d: "Video courses on selling online, marketing and importing.", img: null, tone: "c-coach", cta: "Watch a preview" },
-  { href: "/ebooks", n: "03", t: "Ebooks", d: "Short, practical guides you can read tonight and use tomorrow.", img: null, tone: "c-books", cta: "Browse the library" },
-  { href: "/travel", n: "04", t: "Travel & Settle", d: "Airport pickup, housing and holidays for students and families.", img: null, tone: "c-travel", cta: "Plan your arrival" },
+  { href: "/shop", n: "01", t: "La Boutique", d: "Robes qui affirment votre style, sandales en cuir et sandales maasaï faites main.", img: "/products/dress-magenta-bow.webp", cta: "Découvrir la sélection" },
+  { href: "/coaching", n: "02", t: "Coaching", d: "Cours vidéo pour vendre en ligne, faire du marketing et importer.", img: null, tone: "c-coach", cta: "Voir un extrait" },
+  { href: "/ebooks", n: "03", t: "Ebooks", d: "Des guides courts et pratiques à lire ce soir et appliquer demain.", img: null, tone: "c-books", cta: "Parcourir la bibliothèque" },
+  { href: "/travel", n: "04", t: "Voyage et installation", d: "Accueil à l'aéroport, logement et vacances pour étudiants et familles.", img: null, tone: "c-travel", cta: "Préparer votre arrivée" },
 ];
 
 const QUOTES = [
-  ["I sold my first 20 dresses on WhatsApp the week after the course.", "Grace M., Nairobi"],
-  ["They met me at JKIA at 2am and my room was ready. I felt at home from day one.", "Patrick K., student from Goma"],
-  ["The beaded slides are even better in person. I get asked about them everywhere.", "Aisha O., Mombasa"],
+  ["J'ai vendu mes 20 premières robes sur WhatsApp la semaine après la formation.", "Grace M., Nairobi"],
+  ["Ils m'ont accueilli à JKIA à 2 h du matin et ma chambre était prête. Je me suis senti chez moi dès le premier jour.", "Patrick K., étudiant venu de Goma"],
+  ["Les sandales perlées sont encore plus belles en vrai. On me les complimente partout.", "Aisha O., Mombasa"],
 ];
 
 export default function Home() {
@@ -25,47 +25,40 @@ export default function Home() {
       <section className="hero">
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow">Nairobi · Est. 2024</p>
-            <h1 className="serif display-xxl">Style. Skills.<br /><em>A new home.</em></h1>
-            <p className="lede">Doxa Empire is one house with four doors: a fashion boutique, a business academy, a digital library and a travel desk for anyone making Kenya home.</p>
+            <h1 className="serif display-xxl">Doxa Empire<br /><em>Mode, formation et voyage.</em></h1>
+            <p className="lede">Doxa Empire, c'est une maison avec quatre portes : une boutique de mode, une académie business, une bibliothèque numérique et un service voyage pour tous ceux qui font du Kenya leur nouveau chez eux.</p>
             <div className="cta-row">
-              <Link href="/shop" className="btn">Shop the collection</Link>
-              <Link href="#services" className="btn btn-outline">Explore our services</Link>
+              <Link href="/shop" className="btn">Voir la collection</Link>
+              <Link href="#services" className="btn btn-outline">Nos services</Link>
             </div>
-            <p className="hero-rating"><StarIcon /><StarIcon /><StarIcon /><StarIcon /><StarIcon /> <span>Loved by 2,400+ customers across East Africa</span></p>
+            <p className="hero-rating"><StarIcon /><StarIcon /><StarIcon /><StarIcon /><StarIcon /> <span>Plus de 2 400 clients satisfaits en Afrique de l'Est</span></p>
           </div>
           <div className="hero-art">
             <div className="hero-img a">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/products/dress-ivory.webp" alt="Ivory ruffle slip dress" />
+              <img src="/products/dress-ivory.webp" alt="Robe nuisette ivoire à volants" />
             </div>
             <div className="hero-img b">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/products/dress-fuchsia-puff.webp" alt="Fuchsia puff-sleeve midi dress" />
+              <img src="/products/dress-fuchsia-puff.webp" alt="Robe midi fuchsia à manches bouffantes" />
             </div>
             <div className="hero-float">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/products/slide-olive.webp" alt="" />
-              <div><p className="small muted">Bestseller</p><p className="serif">Olive Leather Slide</p></div>
+              <div><p className="small muted">Meilleure vente</p><p className="serif">Sandale en cuir olive</p></div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="marquee" aria-hidden>
-        <div>{Array.from({ length: 2 }).map((_, k) => (
-          <span key={k}>Dresses ✦ Maasai Slippers ✦ Coaching Videos ✦ Ebooks ✦ Study in Kenya ✦ Safaris ✦ Relocation ✦&nbsp;</span>
-        ))}</div>
-      </div>
-
       {/* ---------- Services overview ---------- */}
       <section className="wrap section" id="services">
         <div className="section-head">
           <div>
-            <p className="eyebrow">What we do</p>
-            <h2 className="serif h2">Four services. One standard of care.</h2>
+            <p className="eyebrow">Ce que nous faisons</p>
+            <h2 className="serif h2">Quatre services. Une même exigence.</h2>
           </div>
-          <p className="muted head-note">Pick a door. Every one leads somewhere better.</p>
+          <p className="muted head-note">Choisissez une porte. Chacune mène plus loin.</p>
         </div>
         <div className="svc-cards">
           {SERVICES.map((s) => (
@@ -96,10 +89,10 @@ export default function Home() {
         <div className="wrap">
           <div className="section-head">
             <div>
-              <p className="eyebrow">01 · The Shop</p>
-              <h2 className="serif h2">New in this season</h2>
+              <p className="eyebrow">01 · La Boutique</p>
+              <h2 className="serif h2">Nouveautés de la saison</h2>
             </div>
-            <Link href="/shop" className="link-arrow">Shop all {shopProducts.length} pieces</Link>
+            <Link href="/shop" className="link-arrow">Voir les {shopProducts.length} articles</Link>
           </div>
           <div className="grid-products">{featured.map((p) => <ProductCard key={p.slug} p={p} />)}</div>
         </div>
@@ -110,9 +103,9 @@ export default function Home() {
         <div className="wrap split">
           <div>
             <p className="eyebrow gold">02 · Coaching</p>
-            <h2 className="serif h2">Learn from people who <em>sell every day.</em></h2>
-            <p className="lede light">From your first online sale to importing stock from Bangladesh, every course is practical, local and made for your phone.</p>
-            <Link href="/coaching" className="btn btn-gold">View all courses</Link>
+            <h2 className="serif h2">Apprenez avec ceux qui <em>vendent chaque jour.</em></h2>
+            <p className="lede light">De votre première vente en ligne à l'importation depuis le Bangladesh, chaque cours est pratique, local et pensé pour votre téléphone.</p>
+            <Link href="/coaching" className="btn btn-gold">Voir tous les cours</Link>
           </div>
           <ul className="course-list">
             {videos.map((v, i) => (
@@ -132,24 +125,24 @@ export default function Home() {
       <section className="wrap section duo">
         <Link href="/ebooks" className="duo-card books">
           <p className="eyebrow">03 · Ebooks</p>
-          <h2 className="serif h2">A library for builders</h2>
-          <p className="muted">{ebooks.length} guides on pricing, WhatsApp selling, sourcing and books. Instant download.</p>
+          <h2 className="serif h2">Une bibliothèque pour bâtisseurs</h2>
+          <p className="muted">{ebooks.length} guides sur les prix, la vente sur WhatsApp, l'approvisionnement et la comptabilité. Téléchargement immédiat.</p>
           <div className="duo-covers">{ebooks.slice(0, 4).map((e) => <EbookCover key={e.slug} p={e} />)}</div>
-          <span className="link-arrow">Browse ebooks</span>
+          <span className="link-arrow">Voir les ebooks</span>
         </Link>
         <Link href="/travel" className="duo-card travel">
-          <p className="eyebrow gold">04 · Travel & Settle</p>
+          <p className="eyebrow gold">04 · Voyage et installation</p>
           <h2 className="serif h2">Karibu Kenya</h2>
-          <p>Students, families relocating and holidaymakers. Airport pickup, housing, SIM, banking and safaris.</p>
-          <ul className="duo-tags"><li>Students</li><li>Relocation</li><li>Holidays</li><li>Airport pickup</li><li>Housing</li></ul>
-          <span className="link-arrow light">Plan your arrival</span>
+          <p>Étudiants, familles qui s'installent et vacanciers. Accueil à l'aéroport, logement, carte SIM, banque et safaris.</p>
+          <ul className="duo-tags"><li>Étudiants</li><li>Installation</li><li>Vacances</li><li>Accueil aéroport</li><li>Logement</li></ul>
+          <span className="link-arrow light">Préparer votre arrivée</span>
         </Link>
       </section>
 
       {/* ---------- Testimonials ---------- */}
       <section className="tint section">
         <div className="wrap">
-          <div className="section-head center"><p className="eyebrow">Kind words</p><h2 className="serif h2">From our community</h2></div>
+          <div className="section-head center"><p className="eyebrow">Témoignages</p><h2 className="serif h2">Notre communauté</h2></div>
           <div className="quotes">
             {QUOTES.map(([q, who]) => (
               <figure key={who} className="quote">
@@ -164,7 +157,7 @@ export default function Home() {
 
       {/* ---------- Pay strip ---------- */}
       <section className="wrap section-sm pay-strip">
-        <p className="serif h3">Pay your way</p>
+        <p className="serif h3">Payez comme vous voulez</p>
         <div className="pay-strip-marks"><CardMarks height={26} /><MobileMarks height={26} /></div>
       </section>
     </>

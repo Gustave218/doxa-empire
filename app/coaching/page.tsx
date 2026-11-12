@@ -5,8 +5,8 @@ import { Bundle } from "./Bundle";
 import { VideoIcon, LockIcon, CheckIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
-  title: "Coaching Videos",
-  description: "Video coaching on selling online, marketing, starting a business and sourcing from Bangladesh and China.",
+  title: "Vidéos de coaching",
+  description: "Coaching vidéo pour vendre en ligne, faire du marketing, créer son entreprise et acheter au Bangladesh et en Chine.",
 };
 
 export default function CoachingPage() {
@@ -16,19 +16,19 @@ export default function CoachingPage() {
       <section className="learn-hero">
         <div className="wrap learn-hero-grid">
           <div>
-            <p className="eyebrow gold">Doxa Academy · Coaching</p>
-            <h1 className="serif display-xl">Build the business<br /><em>you keep talking about.</em></h1>
-            <p className="lede">Five practical video courses from people who sell every day in Nairobi. Watch on your phone, at your pace, forever.</p>
+            <p className="eyebrow gold">Doxa Académie · Coaching</p>
+            <h1 className="serif display-xl">Bâtissez l'entreprise<br /><em>dont vous parlez depuis longtemps.</em></h1>
+            <p className="lede">Cinq cours vidéo pratiques par des gens qui vendent chaque jour à Nairobi. Sur votre téléphone, à votre rythme, pour toujours.</p>
             <ul className="hero-stats">
-              <li><strong>{videos.length}</strong><span>courses</span></li>
-              <li><strong>{Math.round(totalMin / 60)}h+</strong><span>of video</span></li>
-              <li><strong>{videos.reduce((n, v) => n + (v.chapters?.length ?? 0), 0)}</strong><span>lessons</span></li>
+              <li><strong>{videos.length}</strong><span>cours</span></li>
+              <li><strong>{Math.round(totalMin / 60)}h+</strong><span>de vidéo</span></li>
+              <li><strong>{videos.reduce((n, v) => n + (v.chapters?.length ?? 0), 0)}</strong><span>leçons</span></li>
             </ul>
           </div>
           <ul className="how-list">
-            <li><VideoIcon size={22} /><div><strong>Watch a free preview</strong><span>Every course has a short taster.</span></div></li>
-            <li><LockIcon size={22} /><div><strong>Unlock with card or mobile money</strong><span>Visa, Mastercard, M-Pesa, Airtel, Orange.</span></div></li>
-            <li><CheckIcon size={22} /><div><strong>Lifetime access</strong><span>Rewatch any time, including updates.</span></div></li>
+            <li><VideoIcon size={22} /><div><strong>Extrait gratuit</strong><span>Chaque cours propose un court aperçu.</span></div></li>
+            <li><LockIcon size={22} /><div><strong>Débloquez par carte ou mobile money</strong><span>Visa, Mastercard, M-Pesa, Airtel, Orange.</span></div></li>
+            <li><CheckIcon size={22} /><div><strong>Accès à vie</strong><span>Revoyez quand vous voulez, mises à jour incluses.</span></div></li>
           </ul>
         </div>
       </section>

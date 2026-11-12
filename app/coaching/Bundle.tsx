@@ -13,19 +13,19 @@ export function Bundle() {
     <section className="bundle" id="bundle">
       <div className="wrap bundle-grid">
         <div>
-          <p className="eyebrow gold">All-access bundle</p>
-          <h2 className="serif h2">Every course. One price. <em>Save 40%.</em></h2>
+          <p className="eyebrow gold">Pack accès complet</p>
+          <h2 className="serif h2">Tous les cours. Un seul prix. <em>40 % d'économie.</em></h2>
           <ul className="ticks">
             {videos.map((v) => <li key={v.slug}><CheckIcon size={16} /> {v.name}</li>)}
-            <li><CheckIcon size={16} /> Private WhatsApp community</li>
-            <li><CheckIcon size={16} /> Monthly live Q&amp;A</li>
+            <li><CheckIcon size={16} /> Communauté WhatsApp privée</li>
+            <li><CheckIcon size={16} /> Questions réponses en direct chaque mois</li>
           </ul>
         </div>
         <div className="bundle-card">
           <p className="muted-light small"><s>{money(full, currency)}</s></p>
           <p className="bundle-price serif">{money(price, currency)}</p>
-          <p className="muted-light small">One payment · lifetime access</p>
-          <PayButtons amount={money(price, currency)} title="All-access coaching bundle" />
+          <p className="muted-light small">Un seul paiement · accès à vie</p>
+          <PayButtons amount={money(price, currency)} title="Pack coaching accès complet" />
         </div>
       </div>
     </section>

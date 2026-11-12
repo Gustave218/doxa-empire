@@ -4,8 +4,8 @@ import { ShopBrowser } from "./ShopBrowser";
 import { TruckIcon, ShieldIcon, ReturnIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
-  title: "Shop",
-  description: "Dresses, leather slides and handmade Maasai slippers. Delivered across Kenya.",
+  title: "Boutique",
+  description: "Robes, sandales en cuir et sandales maasaï faites main. Livrées partout au Kenya.",
 };
 
 export default function ShopPage() {
@@ -13,19 +13,19 @@ export default function ShopPage() {
     <>
       <section className="shop-hero">
         <div className="wrap">
-          <p className="eyebrow">The Doxa Edit · Season 01</p>
-          <h1 className="serif display-xl">Dressed for <em>every</em> Nairobi evening.</h1>
-          <p className="lede">Statement dresses, soft leather slides and beadwork handmade by Maasai artisans.</p>
+          <p className="eyebrow">La sélection Doxa · Saison 01</p>
+          <h1 className="serif display-xl">Habillée pour <em>toutes</em> les soirées de Nairobi.</h1>
+          <p className="lede">Robes qui affirment votre style, sandales en cuir souple et perles faites main par des artisans maasaï.</p>
         </div>
       </section>
       <div className="perks">
         <div className="wrap perks-row">
-          <span><TruckIcon size={20} /> Same-day Nairobi delivery</span>
-          <span><ReturnIcon size={20} /> 14-day easy returns</span>
-          <span><ShieldIcon size={20} /> Secure card & mobile money</span>
+          <span><TruckIcon size={20} /> Livraison le jour même à Nairobi</span>
+          <span><ReturnIcon size={20} /> Retours faciles sous 14 jours</span>
+          <span><ShieldIcon size={20} /> Paiement sécurisé par carte et mobile money</span>
         </div>
       </div>
-      <Suspense fallback={<div className="wrap section">Loading…</div>}>
+      <Suspense fallback={<div className="wrap section">Chargement…</div>}>
         <ShopBrowser />
       </Suspense>
     </>

@@ -26,32 +26,32 @@ export function CartDrawer() {
   return (
     <>
       <div className={`sheet-scrim ${open ? "show" : ""}`} onClick={() => setOpen(false)} />
-      <aside className={`drawer ${open ? "show" : ""}`} aria-hidden={!open} aria-label="Shopping bag">
+      <aside className={`drawer ${open ? "show" : ""}`} aria-hidden={!open} aria-label="Panier">
         <div className="drawer-head">
-          <h2 className="serif">Your bag <span className="muted">({count})</span></h2>
-          <button className="icon-btn" onClick={() => setOpen(false)} aria-label="Close bag"><CloseIcon /></button>
+          <h2 className="serif">Votre panier <span className="muted">({count})</span></h2>
+          <button className="icon-btn" onClick={() => setOpen(false)} aria-label="Fermer le panier"><CloseIcon /></button>
         </div>
 
         {lines.length === 0 ? (
           <div className="drawer-empty">
             <BagIcon size={44} />
-            <p className="serif">Your bag is empty</p>
-            <Link href="/shop" className="btn">Start shopping</Link>
+            <p className="serif">Votre panier est vide</p>
+            <Link href="/shop" className="btn">Commencer mes achats</Link>
           </div>
         ) : (
           <>
             {hasPhysical && (
               <div className="ship-meter">
-                <p className="small">{left > 0 ? <>Add <strong>{money(left, currency)}</strong> for free Nairobi delivery</> : <>You have unlocked <strong>free delivery</strong></>}</p>
+                <p className="small">{left > 0 ? <>Plus que <strong>{money(left, currency)}</strong> pour la livraison offerte à Nairobi</> : <>Livraison <strong>offerte</strong> débloquée</>}</p>
                 <div className="meter"><span style={{ width: `${Math.min(100, (subtotal / freeAt) * 100)}%` }} /></div>
               </div>
             )}
             <div className="drawer-body"><CartLines compact /></div>
             <div className="drawer-foot">
-              <p className="row-between total-line"><span>Subtotal</span><strong>{money(subtotal, currency)}</strong></p>
-              <p className="small muted">Delivery calculated at checkout.</p>
-              <Link href="/checkout" className="btn btn-block">Checkout</Link>
-              <Link href="/cart" className="btn btn-outline btn-block">View bag</Link>
+              <p className="row-between total-line"><span>Sous total</span><strong>{money(subtotal, currency)}</strong></p>
+              <p className="small muted">Livraison calculée au paiement.</p>
+              <Link href="/checkout" className="btn btn-block">Payer</Link>
+              <Link href="/cart" className="btn btn-outline btn-block">Voir le panier</Link>
             </div>
           </>
         )}

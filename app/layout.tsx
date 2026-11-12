@@ -10,16 +10,16 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 const sans = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--sans", display: "swap" });
 
 export const metadata: Metadata = {
-  title: { default: "Doxa Empire · Fashion, Coaching & Life in Kenya", template: "%s · Doxa Empire" },
-  description: "Shop dresses and handmade Maasai slippers, learn to build a business with coaching videos and ebooks, and settle in Kenya with confidence.",
+  title: { default: "Doxa Empire · Mode, formation et vie au Kenya", template: "%s · Doxa Empire" },
+  description: "Achetez robes et sandales maasaï faites main, apprenez à bâtir votre business avec nos vidéos et ebooks, et installez vous au Kenya en toute confiance.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={sans.variable}>
+    <html lang="fr" className={sans.variable}>
       <body>
         <CartProvider>
-          <a href="#main" className="skip">Skip to content</a>
+          <a href="#main" className="skip">Aller au contenu</a>
           <Header />
           <main id="main">{children}</main>
           <Footer />
