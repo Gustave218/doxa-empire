@@ -94,6 +94,7 @@ export default function CheckoutPage() {
             <p className="muted small">Choisissez comment payer {money(total, currency)}.</p>
             <PayButtons
               amount={money(total, currency)}
+              slugs={lines.map((l) => l.slug)}
               title={`Commande Doxa Empire · ${lines.length} ${lines.length === 1 ? "article" : "articles"}`}
               onBeforeOpen={validate}
               onPaid={() => setTimeout(() => { clear(); setPaid(true); }, 2200)}

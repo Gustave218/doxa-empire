@@ -105,6 +105,7 @@ export function ProductDetail({ slug }: { slug: string }) {
           <p className="opt-label">Paiement express</p>
           <PayButtons
             amount={money(p.price[currency] * qty, currency)}
+            slugs={[slug]}
             title={`${p.name}${size ? ` · Taille ${size}` : ""} × ${qty}`}
             onBeforeOpen={check}
             disabled={soldOut}

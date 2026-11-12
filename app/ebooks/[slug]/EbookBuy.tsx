@@ -20,7 +20,7 @@ export function EbookBuy({ slug }: { slug: string }) {
   return (
     <div className="ebook-buy">
       <p className="pdp-price">{money(p.price[currency], currency)}</p>
-      <PayButtons amount={money(p.price[currency], currency)} title={`${p.name} (ebook)`} onPaid={() => setOwned(true)} />
+      <PayButtons amount={money(p.price[currency], currency)} title={`${p.name} (ebook)`} slugs={[slug]} onPaid={() => setOwned(true)} />
       <button className={`btn btn-outline btn-block ${added ? "added" : ""}`} onClick={() => { add({ slug, qty: 1 }); setAdded(true); setTimeout(() => setAdded(false), 1400); }}>
         {added ? <><CheckIcon size={16} /> Ajouté au panier</> : <><BagIcon size={16} /> Ajouter au panier</>}
       </button>

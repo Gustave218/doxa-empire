@@ -19,6 +19,7 @@ const PAGES: (Hit & { keys: string })[] = [
   { href: "/travel#enquire", title: "Faire une demande de voyage", kind: "Section", text: "Réponse sur WhatsApp sous 24 h", keys: "demande devis formulaire contact voyage faq question" },
   { href: "/about", title: "À propos", kind: "Page", text: "Notre histoire et nos valeurs", keys: "a propos about histoire valeurs equipe fondateur gloria" },
   { href: "/contact", title: "Contact", kind: "Page", text: "WhatsApp, email, téléphone", keys: "contact whatsapp email telephone appeler adresse nairobi" },
+  { href: "/commandes", title: "Mes commandes et abonnements", kind: "Page", text: "Vos achats, cours et ebooks", keys: "commande commandes abonnement abonnements achats historique mes cours" },
   { href: "/cart", title: "Panier", kind: "Page", text: "Votre panier", keys: "panier bag cart commande" },
   { href: "/delivery", title: "Livraison", kind: "Page", text: "Délais et frais de livraison", keys: "livraison delivery expedition delai" },
   { href: "/refunds", title: "Retours et remboursements", kind: "Page", text: "Échanges et remboursements", keys: "retour retours remboursement echange" },

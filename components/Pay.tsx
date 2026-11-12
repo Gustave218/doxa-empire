@@ -4,6 +4,8 @@
 // mobile money APIs (Daraja for M-Pesa, Airtel Money, Orange Money) later.
 
 import { useEffect, useRef, useState } from "react";
+import { saveOrder } from "@/lib/orders";
+import { bySlug } from "@/lib/catalog";
 import { createPortal } from "react-dom";
 import { CardMarks, MobileMarks, VisaMark, MastercardMark, MpesaMark, AirtelMark, OrangeMark, CloseIcon, LockIcon, CheckIcon, CardIcon, PhoneIcon } from "./Icons";
 
@@ -16,8 +18,8 @@ const PROVIDERS: { id: Provider; label: string; Mark: typeof MpesaMark; prefix: 
   { id: "orange", label: "Orange Money", Mark: OrangeMark, prefix: "+243" },
 ];
 
-export function PayButtons({ amount, title, onPaid, disabled, onBeforeOpen }: {
-  amount: string; title: string; onPaid?: () => void; disabled?: boolean; onBeforeOpen?: () => boolean;
+export function PayButtons({ amount, title, onPaid, disabled, onBeforeOpen, slugs = [] }: {
+  amount: string; title: string; onPaid?: () => void; disabled?: boolean; onBeforeOpen?: () => boolean; slugs?: string[];
 }) {
   const [method, setMethod] = useState<Method | null>(null);
   const open = (m: Method) => { if (onBeforeOpen && !onBeforeOpen()) return; setMethod(m); };
@@ -33,7 +35,7 @@ export function PayButtons({ amount, title, onPaid, disabled, onBeforeOpen }: {
           <MobileMarks height={20} />
         </button>
       </div>
-      {method && <PayModal method={method} amount={amount} title={title} onClose={() => setMethod(null)} onPaid={onPaid} />}
+      {method && <PayModal method={method} amount={amount} title={title} onClose={() => setMethod(null)} onPaid={() => { saveOrder({ title, amount, slugs, physical: slugs.some((s) => bySlug(s)?.type === "physical") }); onPaid?.(); }} />}
     </>
   );
 }

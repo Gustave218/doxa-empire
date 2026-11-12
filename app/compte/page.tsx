@@ -32,7 +32,7 @@ export default function ComptePage() {
           <button className="btn btn-block" disabled={!configured}>Enregistrer</button>
         </form>
         <div className="row-between auth-links">
-          <Link href="/shop" className="link">Boutique</Link>
+          <Link href="/commandes" className="link">Mes commandes / abonnements</Link>
           <button className="link" onClick={() => { signOut(); router.push("/"); }}>Se déconnecter</button>
         </div>
       </div>

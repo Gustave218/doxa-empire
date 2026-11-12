@@ -5,6 +5,7 @@
 // Until they are set, `configured` is false and checkout is not gated.
 
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { setOrderOwner } from "@/lib/orders";
 
 const URL_ = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
 const KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
@@ -116,5 +117,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUser(toUser(await r.json())); return null;
   };
 
+  setOrderOwner(user?.id);
   return <AuthCtx.Provider value={{ configured, ready, user, signIn, signUp, google, signOut, update }}>{children}</AuthCtx.Provider>;
 }

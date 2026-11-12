@@ -25,7 +25,7 @@ export function Bundle() {
           <p className="muted-light small"><s>{money(full, currency)}</s></p>
           <p className="bundle-price serif">{money(price, currency)}</p>
           <p className="muted-light small">Un seul paiement · accès à vie</p>
-          <PayButtons amount={money(price, currency)} title="Pack coaching accès complet" />
+          <PayButtons amount={money(price, currency)} title="Pack coaching accès complet" slugs={videos.map((v) => v.slug)} />
         </div>
       </div>
     </section>

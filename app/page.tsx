@@ -8,7 +8,7 @@ const SERVICES = [
   { href: "/shop", n: "01", t: "Doxa Business", d: "Découvrez nos produits de qualité : robes élégantes, sandales en cuir et sandales maasaï faites main.", img: "/products/dress-magenta-bow.webp", cta: "Découvrir la sélection" },
   { href: "/coaching", n: "02", t: "Coaching", d: "Cours vidéo pour vendre en ligne, faire du marketing et importer.", img: "/thumbs/vendre.jpg", tone: "c-coach", cta: "Voir un extrait" },
   { href: "/ebooks", n: "03", t: "Ebooks", d: "Des guides courts et pratiques à lire ce soir et appliquer demain.", img: null, tone: "c-books", cta: "Parcourir la bibliothèque" },
-  { href: "/travel", n: "04", t: "Voyage et installation", d: "Accueil à l'aéroport, logement et vacances pour étudiants et familles.", img: "/travel/kenya.jpg", tone: "c-travel", cta: "Préparer votre arrivée" },
+  { href: "/travel", n: "04", t: "Voyage et installation", d: "Accueil à l'aéroport, logement et vacances pour étudiants et familles.", img: "/travel/plane.jpg", tone: "c-travel", cta: "Préparer votre arrivée" },
 ];
 
 const QUOTES = [
@@ -64,7 +64,10 @@ export default function Home() {
             <Link key={s.href} href={s.href} className={`svc-card ${s.tone ?? ""}`}>
               {s.img ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={s.img} alt="" className="svc-card-img" />
+                <span className="svc-card-media">
+                  <img src={s.img} alt="" className="svc-card-img" />
+                  {s.tone === "c-travel" && <img src="/travel/stay.jpg" alt="" className="stay-inset" />}
+                </span>
               ) : (
                 <span className="svc-card-art" aria-hidden>
                   {s.tone === "c-coach" && <PlayIcon size={56} />}
@@ -121,7 +124,9 @@ export default function Home() {
         </Link>
         <Link href="/travel" className="duo-card travel">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/travel/kenya.jpg" alt="" className="travel-bg" loading="lazy" />
+          <img src="/travel/plane.jpg" alt="" className="travel-bg" loading="lazy" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/travel/stay.jpg" alt="Appartement confortable" className="stay-inset big" loading="lazy" />
           <div className="boarding">
             <span><small>De</small><strong>FIH</strong><em>Kinshasa</em></span>
             <span className="boarding-mid" aria-hidden>✈</span>

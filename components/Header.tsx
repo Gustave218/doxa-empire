@@ -99,6 +99,7 @@ export function Header() {
           <Link href="/">Accueil</Link>
           {NAV.map((n) => <Link key={n.href} href={n.href}>{n.label}</Link>)}
           <Link href={user ? "/compte" : "/connexion"}>{user ? "Mon compte" : "Connexion / Inscription"}</Link>
+          <Link href="/commandes">Mes commandes / abonnements</Link>
           <Link href="/cart">Panier ({ready ? count : 0})</Link>
         </nav>
       </aside>

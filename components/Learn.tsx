@@ -58,7 +58,7 @@ export function VideoCard({ p, index }: { p: Product; index: number }) {
               <p className="price-lg">{money(p.price[currency], currency)}</p>
               <button className="link small add-link" onClick={() => add({ slug: p.slug, qty: 1 })}><BagIcon size={14} /> Ajouter au panier</button>
             </div>
-            <PayButtons amount={money(p.price[currency], currency)} title={p.name} onPaid={() => setOwned(true)} />
+            <PayButtons amount={money(p.price[currency], currency)} title={p.name} slugs={[p.slug]} onPaid={() => setOwned(true)} />
           </>
         )}
       </div>
@@ -123,7 +123,7 @@ export function EbookCard({ p }: { p: Product }) {
               <p className="price-lg">{money(p.price[currency], currency)}</p>
               <button className="link small add-link" onClick={() => add({ slug: p.slug, qty: 1 })}><BagIcon size={14} /> Ajouter au panier</button>
             </div>
-            <PayButtons amount={money(p.price[currency], currency)} title={`${p.name} (ebook)`} onPaid={() => setOwned(true)} />
+            <PayButtons amount={money(p.price[currency], currency)} title={`${p.name} (ebook)`} slugs={[p.slug]} onPaid={() => setOwned(true)} />
           </>
         )}
       </div>
