@@ -73,7 +73,6 @@ export default function Home() {
                 </span>
               )}
               <span className="svc-card-body">
-                <span className="svc-n">{s.n}</span>
                 <span className="serif svc-t">{s.t}</span>
                 <span className="svc-d">{s.d}</span>
                 <span className="svc-cta">{s.cta} <ArrowIcon size={16} /></span>
@@ -88,7 +87,7 @@ export default function Home() {
         <div className="wrap">
           <div className="section-head">
             <div>
-              <p className="eyebrow">01 · Doxa Business</p>
+              <p className="eyebrow">Doxa Business</p>
               <h2 className="serif h2">Découvrez nos produits de qualité</h2>
             </div>
             <Link href="/shop" className="link-arrow">Visiter la boutique</Link>
@@ -96,7 +95,6 @@ export default function Home() {
           <div className="prod-row" aria-label="Nos produits">
             {shopProducts.map((p) => <div key={p.slug} className="prod-slide"><ProductCard p={p} /></div>)}
           </div>
-          <div className="center prod-cta"><Link href="/shop" className="btn">Visiter la boutique</Link></div>
         </div>
       </section>
 
@@ -104,16 +102,15 @@ export default function Home() {
       <section className="dark-band section">
         <div className="wrap split">
           <div>
-            <p className="eyebrow gold">02 · Coaching</p>
+            <p className="eyebrow gold">Coaching</p>
             <h2 className="serif h2">Apprenez avec ceux qui <em>vendent chaque jour.</em></h2>
             <p className="lede light">De votre première vente en ligne à l’importation depuis le Bangladesh, chaque cours est pratique, local et pensé pour votre téléphone.</p>
             <Link href="/coaching" className="btn btn-gold">Voir tous les cours</Link>
           </div>
           <ul className="course-list">
-            {videos.map((v, i) => (
+            {videos.map((v) => (
               <li key={v.slug}>
                 <Link href={`/coaching#${v.slug}`}>
-                  <span className="cl-n serif">0{i + 1}</span>
                   <span className="cl-t">{v.name}<small>{v.minutes} min · {v.level}</small></span>
                   <LockIcon size={16} />
                 </Link>
@@ -126,7 +123,7 @@ export default function Home() {
       {/* ---------- Ebooks + Travel ---------- */}
       <section className="wrap section duo">
         <Link href="/ebooks" className="duo-card books">
-          <p className="eyebrow">03 · Ebooks</p>
+          <p className="eyebrow">Ebooks</p>
           <h2 className="serif h2">Une bibliothèque pour bâtisseurs</h2>
           <p className="muted">{ebooks.length} guides sur les prix, la vente sur WhatsApp, l’approvisionnement et la comptabilité. Téléchargement immédiat.</p>
           <div className="duo-covers">{ebooks.slice(0, 4).map((e) => <EbookCover key={e.slug} p={e} />)}</div>
@@ -140,7 +137,7 @@ export default function Home() {
             <span className="boarding-mid" aria-hidden>✈</span>
             <span><small>À</small><strong>NBO</strong><em>Nairobi</em></span>
           </div>
-          <p className="eyebrow gold">04 · Voyage et installation</p>
+          <p className="eyebrow gold">Voyage et installation</p>
           <h2 className="serif h2">Karibu Kenya</h2>
           <p>Étudiants, familles qui s’installent et vacanciers. Accueil à l’aéroport, logement, carte SIM, banque et safaris.</p>
           <ul className="duo-tags"><li>Étudiants</li><li>Installation</li><li>Vacances</li><li>Accueil aéroport</li><li>Logement</li></ul>
