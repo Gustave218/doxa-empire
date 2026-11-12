@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "./CartProvider";
 import { money, type Product } from "@/lib/catalog";
@@ -107,12 +108,12 @@ export function EbookCard({ p }: { p: Product }) {
   const [owned, setOwned] = useState(false);
   return (
     <article className="ebook" id={p.slug}>
-      <div className="ebook-visual">
+      <Link href={`/ebooks/${p.slug}`} className="ebook-visual" aria-label={p.name}>
         <EbookCover p={p} />
         {p.badge && <span className="tag">{p.badge}</span>}
-      </div>
+      </Link>
       <div className="ebook-body">
-        <h3 className="serif h3">{p.name}</h3>
+        <h3 className="serif h3"><Link href={`/ebooks/${p.slug}`}>{p.name}</Link></h3>
         <p className="muted">{p.short} {p.description}</p>
         <p className="ebook-meta"><BookIcon size={16} /> PDF + ePub · {p.pages} pages · Téléchargement immédiat</p>
         {owned ? (

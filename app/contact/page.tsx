@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { ChatIcon, MailIcon, PinIcon, PhoneIcon } from "@/components/Icons";
+import { ChatIcon, PinIcon, PhoneIcon } from "@/components/Icons";
 
-export const metadata: Metadata = { title: "Contact", description: "Écrivez à Doxa Empire sur WhatsApp, par email ou rendez nous visite à Nairobi." };
+export const metadata: Metadata = { title: "Contact", description: "Écrivez à Doxa Empire sur WhatsApp ou rendez nous visite à Nairobi ou Kinshasa." };
 
-// Contact details are placeholders until the client confirms them.
 const CHANNELS = [
   { Icon: ChatIcon, t: "WhatsApp", d: "Réponse la plus rapide, de 8 h à 21 h tous les jours", v: "+254 707 898 058" },
-  { Icon: MailIcon, t: "Email", d: "Réponse sous un jour ouvré", v: "hello@doxaempire.co.ke" },
   { Icon: PhoneIcon, t: "Appel", d: "Du lundi au samedi, de 9 h à 18 h (heure de Nairobi)", v: "+254 707 898 058" },
-  { Icon: PinIcon, t: "Visite", d: "Showroom sur rendez vous", v: "Westlands, Nairobi" },
+  { Icon: PinIcon, t: "Nairobi", d: "Sur rendez vous", v: "Nairobi, Kenya" },
+  { Icon: PinIcon, t: "Kinshasa", d: "Sur rendez vous", v: "Kinshasa, RD Congo" },
 ];
 
 export default function ContactPage() {
@@ -29,7 +28,6 @@ export default function ContactPage() {
           </div>
         ))}
       </div>
-      <p className="center small muted">Certaines coordonnées sont provisoires.</p>
     </div>
   );
 }

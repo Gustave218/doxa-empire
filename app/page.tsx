@@ -5,10 +5,10 @@ import { EbookCover } from "@/components/Learn";
 import { ArrowIcon, PlayIcon, LockIcon, CapIcon, HomeIcon, SunIcon, StarIcon, CardMarks, MobileMarks } from "@/components/Icons";
 
 const SERVICES = [
-  { href: "/shop", n: "01", t: "La Boutique", d: "Robes qui affirment votre style, sandales en cuir et sandales maasaï faites main.", img: "/products/dress-magenta-bow.webp", cta: "Découvrir la sélection" },
-  { href: "/coaching", n: "02", t: "Coaching", d: "Cours vidéo pour vendre en ligne, faire du marketing et importer.", img: null, tone: "c-coach", cta: "Voir un extrait" },
+  { href: "/shop", n: "01", t: "Doxa Business", d: "Découvrez nos produits de qualité : robes élégantes, sandales en cuir et sandales maasaï faites main.", img: "/products/dress-magenta-bow.webp", cta: "Découvrir la sélection" },
+  { href: "/coaching", n: "02", t: "Coaching", d: "Cours vidéo pour vendre en ligne, faire du marketing et importer.", img: "/thumbs/vendre.jpg", tone: "c-coach", cta: "Voir un extrait" },
   { href: "/ebooks", n: "03", t: "Ebooks", d: "Des guides courts et pratiques à lire ce soir et appliquer demain.", img: null, tone: "c-books", cta: "Parcourir la bibliothèque" },
-  { href: "/travel", n: "04", t: "Voyage et installation", d: "Accueil à l'aéroport, logement et vacances pour étudiants et familles.", img: null, tone: "c-travel", cta: "Préparer votre arrivée" },
+  { href: "/travel", n: "04", t: "Voyage et installation", d: "Accueil à l'aéroport, logement et vacances pour étudiants et familles.", img: "/travel/kenya.jpg", tone: "c-travel", cta: "Préparer votre arrivée" },
 ];
 
 const QUOTES = [
@@ -89,8 +89,8 @@ export default function Home() {
         <div className="wrap">
           <div className="section-head">
             <div>
-              <p className="eyebrow">01 · La Boutique</p>
-              <h2 className="serif h2">Nouveautés de la saison</h2>
+              <p className="eyebrow">01 · Doxa Business</p>
+              <h2 className="serif h2">Découvrez nos produits de qualité</h2>
             </div>
             <Link href="/shop" className="link-arrow">Voir les {shopProducts.length} articles</Link>
           </div>

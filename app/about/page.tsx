@@ -27,8 +27,8 @@ export default function AboutPage() {
         </div>
         <div>
           <h2 className="serif h2">Notre histoire</h2>
-          <p>Notre fondateur est arrivé au Kenya comme étudiant et a tout appris à ses dépens : trouver une chambre, ouvrir un compte bancaire, savoir comment se faire payer. Vendre des sandales maasaï faites main en ligne a payé le loyer, et les amis demandaient sans cesse comment faire.</p>
-          <p>Alors nous avons commencé à enseigner. Puis à aider les nouveaux étudiants à s’installer. Puis à sélectionner des robes pour les femmes qui achetaient nos sandales. Doxa Empire, c’est tout ce que nous aurions aimé trouver à notre arrivée.</p>
+          <p>Notre fondatrice, Gloria, est arrivée au Kenya comme étudiante et a tout appris à ses dépens : trouver une chambre, ouvrir un compte bancaire, savoir comment se faire payer. Vendre des sandales maasaï faites main en ligne a payé le loyer, et les amis demandaient sans cesse comment faire.</p>
+          <p>Alors elle a commencé à enseigner. Puis à aider les nouveaux étudiants à s’installer. Puis à sélectionner des robes pour les femmes qui achetaient nos sandales. Doxa Empire, c’est tout ce que nous aurions aimé trouver à notre arrivée.</p>
           <ul className="hero-stats dark">
             <li><strong>2 400+</strong><span>clients</span></li>
             <li><strong>600+</strong><span>arrivées accompagnées</span></li>

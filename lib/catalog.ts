@@ -198,7 +198,8 @@ export const products: Product[] = [
     price: { KES: 1500, USD: 12 },
     short: "Testez votre idée auprès de vrais acheteurs avant de dépenser.",
     description: "Un guide pratique pour vérifier la demande, faire une première offre et être payé.",
-    cover: { bg: "#111111", fg: "#ffffff", accent: "#e4318c" }, pages: 84, badge: "Meilleure vente",
+    cover: { bg: "#111111", fg: "#ffffff", accent: "#e4318c" }, pages: 84,
+    chapters: ["Trouver une idée qui répond à un vrai besoin", "Tester la demande sans dépenser", "Construire une première offre simple", "Fixer un prix de lancement", "Encaisser vos premiers paiements", "Transformer vos premiers clients en ambassadeurs"], badge: "Meilleure vente",
   },
   {
     slug: "selling-on-whatsapp", type: "ebook", thumb: "/books/whatsapp.jpg",
@@ -206,7 +207,8 @@ export const products: Product[] = [
     price: { KES: 1200, USD: 9 },
     short: "Catalogues, statuts et réponses qui concluent des ventes.",
     description: "Faites de l'appli que vos clients utilisent déjà votre boutique.",
-    cover: { bg: "#e4318c", fg: "#ffffff", accent: "#111111" }, pages: 62, badge: "Nouveau",
+    cover: { bg: "#e4318c", fg: "#ffffff", accent: "#111111" }, pages: 62,
+    chapters: ["Configurer WhatsApp Business", "Créer un catalogue qui donne envie", "Utiliser les statuts pour vendre", "Répondre vite et conclure", "Relancer sans déranger", "Organiser vos commandes et paiements"], badge: "Nouveau",
   },
   {
     slug: "the-bangladesh-sourcing-guide", type: "ebook", thumb: "/books/bangladesh.jpg",
@@ -215,6 +217,7 @@ export const products: Product[] = [
     short: "Listes de fournisseurs, prix de référence et checklists d'expédition.",
     description: "Tout pour passer votre première commande de vêtements à Dacca en confiance.",
     cover: { bg: "#f6f6f7", fg: "#111111", accent: "#e4318c" }, pages: 112,
+    chapters: ["Pourquoi acheter au Bangladesh", "Trouver et vérifier des fournisseurs", "Négocier prix et quantités minimales", "Échantillons et contrôle qualité", "Payer en toute sécurité", "Expédition, douane et coût de revient"],
   },
   {
     slug: "pricing-without-fear", type: "ebook", thumb: "/books/prix.jpg",
@@ -223,6 +226,7 @@ export const products: Product[] = [
     short: "Trouvez un prix qui couvre vos coûts et vous rémunère.",
     description: "Coûts, marges et comment annoncer votre prix avec assurance.",
     cover: { bg: "#2b2b2b", fg: "#ffffff", accent: "#ff4fa3" }, pages: 56,
+    chapters: ["Calculer tous vos coûts", "Choisir votre marge", "Se comparer à la concurrence", "Annoncer votre prix avec assurance", "Gérer les demandes de réduction"],
   },
   {
     slug: "marketing-on-a-shoestring", type: "ebook", thumb: "/books/marketing.jpg",
@@ -231,6 +235,7 @@ export const products: Product[] = [
     short: "50 façons peu coûteuses de faire connaître votre marque.",
     description: "Idées de contenu, scripts de collaboration et modèles de pubs pour petits budgets.",
     cover: { bg: "#ffd6ea", fg: "#111111", accent: "#b0145f" }, pages: 74,
+    chapters: ["Définir votre client idéal", "50 idées de contenu gratuites", "Collaborer avec d’autres marques", "Lancer une pub avec un petit budget", "Mesurer ce qui marche"],
   },
   {
     slug: "simple-books-small-shops", type: "ebook", thumb: "/books/comptabilite.jpg",
@@ -239,6 +244,7 @@ export const products: Product[] = [
     short: "Suivez chaque shilling dans un carnet ou une feuille.",
     description: "La comptabilité sans jargon.",
     cover: { bg: "#b0145f", fg: "#ffffff", accent: "#ffd6ea" }, pages: 48,
+    chapters: ["Séparer argent perso et argent du business", "Noter chaque vente et chaque dépense", "Suivre votre stock", "Calculer votre bénéfice du mois", "Préparer l’avenir de votre boutique"],
   },
 ];
 
@@ -249,7 +255,7 @@ export const bySlug = (slug: string) => products.find((p) => p.slug === slug);
 export const totalStock = (p: Product) => (p.sizes ? p.sizes.reduce((n, s) => n + s.stock, 0) : Infinity);
 
 export const productHref = (p: Product) =>
-  p.type === "physical" ? `/shop/${p.slug}` : p.type === "ebook" ? `/ebooks#${p.slug}` : `/coaching#${p.slug}`;
+  p.type === "physical" ? `/shop/${p.slug}` : p.type === "ebook" ? `/ebooks/${p.slug}` : `/coaching#${p.slug}`;
 
 export function money(v: number, currency: Currency) {
   return currency === "KES" ? `KES ${v.toLocaleString("en-KE")}` : `$${v.toLocaleString("en-US")}`;
