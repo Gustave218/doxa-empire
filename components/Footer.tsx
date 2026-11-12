@@ -48,7 +48,7 @@ export function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Doxa Empire · Nairobi, Kenya</p>
+          <p>© {new Date().getFullYear()} Doxa Empire · Nairobi, Kenya · Kinshasa, RD Congo · <a href="https://web.guzones.com" target="_blank" rel="noopener" className="powered">Powered by Guzones</a></p>
           <div className="footer-pay"><CardMarks height={18} /><MobileMarks height={18} /></div>
         </div>
       </div>

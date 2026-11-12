@@ -93,12 +93,8 @@ export default function Home() {
             </div>
             <Link href="/shop" className="link-arrow">Visiter la boutique</Link>
           </div>
-          <div className="prod-marquee" aria-label="Nos produits">
-            <div className="prod-track">
-              {[...shopProducts, ...shopProducts].map((p, i) => (
-                <div key={p.slug + i} className="prod-slide" aria-hidden={i >= shopProducts.length}><ProductCard p={p} priority /></div>
-              ))}
-            </div>
+          <div className="prod-row" aria-label="Nos produits">
+            {shopProducts.map((p) => <div key={p.slug} className="prod-slide"><ProductCard p={p} /></div>)}
           </div>
           <div className="center prod-cta"><Link href="/shop" className="btn">Visiter la boutique</Link></div>
         </div>
@@ -139,10 +135,6 @@ export default function Home() {
         <Link href="/travel" className="duo-card travel">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/travel/kenya.jpg" alt="" className="travel-bg" loading="lazy" />
-          <svg className="flight-path" viewBox="0 0 400 160" aria-hidden>
-            <path d="M10 140 C 120 20, 260 20, 390 70" fill="none" stroke="rgba(255,255,255,.7)" strokeWidth="2" strokeDasharray="6 8" />
-            <g className="plane"><path d="M0 0l14 5-14 5 3-5z" fill="#fff" /></g>
-          </svg>
           <div className="boarding">
             <span><small>De</small><strong>FIH</strong><em>Kinshasa</em></span>
             <span className="boarding-mid" aria-hidden>✈</span>

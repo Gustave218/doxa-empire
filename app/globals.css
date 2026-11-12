@@ -863,3 +863,12 @@ input, select, textarea { font-size: 16px !important; }
 .duo-card.travel .duo-tags li { background: rgba(255,255,255,.12); backdrop-filter: blur(6px); border-color: rgba(255,255,255,.35); }
 @media (prefers-reduced-motion: reduce) { .flight-path .plane { animation: none; } }
 @media (max-width: 600px) { .duo-card.travel { min-height: 480px; padding-top: 92px !important; } .boarding { top: 16px; right: 16px; padding: 8px 12px; } .boarding strong { font-size: 17px; } }
+
+/* ---------- Home product row (manual swipe, smaller cards) ---------- */
+.prod-row { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 16px 12px; margin: 0 -16px; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+.prod-row .prod-slide { width: 190px; margin: 0; flex: none; scroll-snap-align: start; }
+@media (min-width: 900px) { .prod-row { gap: 20px; } .prod-row .prod-slide { width: 210px; } }
+@media (max-width: 600px) { .prod-row .prod-slide { width: 46vw; } }
+.prod-row .card-name { font-size: 14px; }
+.powered { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.powered:hover { color: var(--pink); }
