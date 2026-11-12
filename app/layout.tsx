@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/components/CartProvider";
@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   title: { default: "Doxa Empire · Mode, formation et vie au Kenya", template: "%s · Doxa Empire" },
   description: "Achetez robes et sandales maasaï faites main, apprenez à bâtir votre business avec nos vidéos et ebooks, et installez vous au Kenya en toute confiance.",
 };
+
+export const viewport: Viewport = { width: "device-width", initialScale: 1, maximumScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

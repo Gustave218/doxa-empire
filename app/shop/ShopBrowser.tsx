@@ -3,6 +3,7 @@
 import { useMemo, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { shopProducts, type Category } from "@/lib/catalog";
+import { matchesProduct } from "@/lib/search";
 import { ProductCard } from "@/components/ProductCard";
 import { useCart } from "@/components/CartProvider";
 import { SearchIcon, CloseIcon } from "@/components/Icons";
@@ -20,10 +21,7 @@ export function ShopBrowser() {
   useEffect(() => { setQ(params.get("q") ?? ""); const c = params.get("c"); if (c) setCat(c as Category); }, [params]);
 
   const list = useMemo(() => {
-    const needle = q.trim().toLowerCase();
-    const out = shopProducts.filter((p) =>
-      (cat === "All" || p.category === cat) &&
-      (!needle || [p.name, p.short, p.category, ...(p.colours ?? [])].join(" ").toLowerCase().includes(needle)));
+    const out = shopProducts.filter((p) => (cat === "All" || p.category === cat) && (!q.trim() || matchesProduct(p, q)));
     if (sort === "low") out.sort((a, b) => a.price[currency] - b.price[currency]);
     if (sort === "high") out.sort((a, b) => b.price[currency] - a.price[currency]);
     if (sort === "rating") out.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
@@ -44,7 +42,7 @@ export function ShopBrowser() {
           <label className="search-field">
             <SearchIcon size={18} />
             <span className="sr-only">Rechercher des produits</span>
-            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Rechercher dans la boutique" />
+            <input type="search" value={q} onChange={(e) => { setQ(e.target.value); if (e.target.value && cat !== "All") setCat("All"); }} placeholder="Rechercher dans la boutique" enterKeyHint="search" />
             {q && <button onClick={() => setQ("")} aria-label="Effacer la recherche"><CloseIcon size={16} /></button>}
           </label>
           <label className="select">

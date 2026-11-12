@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { searchAll } from "@/lib/search";
 import { useCart } from "./CartProvider";
 import { BagIcon, CloseIcon, MenuIcon, SearchIcon } from "./Icons";
 
@@ -22,8 +23,10 @@ export function Header() {
   const [menu, setMenu] = useState(false);
   const [search, setSearch] = useState(false);
   const [bump, setBump] = useState(false);
+  const [query, setQuery] = useState("");
+  const hits = useMemo(() => searchAll(query), [query]);
 
-  useEffect(() => { setMenu(false); setSearch(false); }, [path]);
+  useEffect(() => { setMenu(false); setSearch(false); setQuery(""); }, [path]);
   useEffect(() => {
     if (!count) return;
     setBump(true);
@@ -55,15 +58,31 @@ export function Header() {
           </div>
         </div>
         {search && (
-          <form className="search-bar" role="search" onSubmit={(e) => {
-            e.preventDefault();
-            const q = new FormData(e.currentTarget).get("q") as string;
-            router.push(`/shop?q=${encodeURIComponent(q)}`);
-          }}>
-            <SearchIcon size={18} />
-            <input name="q" autoFocus placeholder="Rechercher robes, sandales…" aria-label="Rechercher des produits" />
-            <button type="button" className="icon-btn" onClick={() => setSearch(false)} aria-label="Fermer la recherche"><CloseIcon size={18} /></button>
-          </form>
+          <div className="search-wrap">
+            <form className="search-bar" role="search" onSubmit={(e) => {
+              e.preventDefault();
+              const first = hits[0];
+              router.push(first ? first.href : `/shop?q=${encodeURIComponent(query)}`);
+              setSearch(false);
+            }}>
+              <SearchIcon size={18} />
+              <input name="q" autoFocus value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Rechercher sur le site : robes, cours, ebooks, voyage…" aria-label="Rechercher sur le site" autoComplete="off" enterKeyHint="search" />
+              <button type="button" className="icon-btn" onClick={() => setSearch(false)} aria-label="Fermer la recherche"><CloseIcon size={18} /></button>
+            </form>
+            {query.trim() && (
+              <ul className="search-results">
+                {hits.length ? hits.map((h) => (
+                  <li key={h.href + h.title}>
+                    <Link href={h.href} onClick={() => setSearch(false)}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      {h.img ? <img src={h.img} alt="" /> : <span className="sr-ico"><SearchIcon size={16} /></span>}
+                      <span><strong>{h.title}</strong><small>{h.kind}{h.text ? ` · ${h.text}` : ""}</small></span>
+                    </Link>
+                  </li>
+                )) : <li className="sr-empty">Aucun résultat pour « {query} ». Essayez « robe », « ebook », « étudiant »…</li>}
+              </ul>
+            )}
+          </div>
         )}
       </header>
 

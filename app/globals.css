@@ -766,3 +766,18 @@ html, body { overflow-x: clip; max-width: 100%; }
 .mini-covers .cover.has-img { width: 110px; margin-left: -34px; box-shadow: none; }
 .mini-covers .cover.has-img:nth-child(1) { margin-left: 0; }
 .duo-covers .cover.has-img { width: 25%; }
+
+/* ---------- Site search ---------- */
+.search-wrap { position: relative; border-top: 1px solid var(--line); }
+.search-results { list-style: none; margin: 0 auto; padding: 0 16px 14px; max-width: var(--max); max-height: 60vh; overflow-y: auto; }
+.search-results a { display: flex; align-items: center; gap: 12px; padding: 10px 8px; border-radius: 12px; }
+.search-results a:hover, .search-results a:focus-visible { background: var(--ivory); }
+.search-results img, .search-results .sr-ico { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; flex: none; background: var(--ivory); display: grid; place-items: center; }
+.search-results strong { display: block; font-size: 15px; }
+.search-results small { display: block; font-size: 12.5px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.search-results a > span:last-child { min-width: 0; }
+.sr-empty { padding: 12px 8px; color: var(--muted); font-size: 14px; }
+.search-field input[type="search"]::-webkit-search-cancel-button { display: none; }
+
+/* No zoom on focus (iOS zooms inputs under 16px) */
+input, select, textarea { font-size: 16px !important; }
