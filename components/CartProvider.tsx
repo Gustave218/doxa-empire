@@ -27,7 +27,7 @@ const CartCtx = createContext<Ctx | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [lines, setLines] = useState<CartLine[]>([]);
-  const [currency, setCurrency] = useState<Currency>("KES");
+  const [currency, setCurrency] = useState<Currency>("USD");
   const [open, setOpen] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -35,7 +35,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     try {
       const saved = JSON.parse(localStorage.getItem("doxa-bag") || "null");
       if (Array.isArray(saved?.lines)) setLines(saved.lines.filter((l: CartLine) => bySlug(l.slug)));
-      if (saved?.currency === "KES" || saved?.currency === "USD") setCurrency(saved.currency);
     } catch {}
     setReady(true);
   }, []);

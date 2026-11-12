@@ -16,7 +16,7 @@ export const NAV = [
 ];
 
 export function Header() {
-  const { count, setOpen, currency, setCurrency, ready } = useCart();
+  const { count, setOpen, ready } = useCart();
   const path = usePathname();
   const router = useRouter();
   const [menu, setMenu] = useState(false);
@@ -47,11 +47,6 @@ export function Header() {
             ))}
           </nav>
           <div className="header-actions">
-            <div className="currency" role="group" aria-label="Devise">
-              {(["KES", "USD"] as const).map((c) => (
-                <button key={c} className={currency === c ? "on" : ""} onClick={() => setCurrency(c)} aria-pressed={currency === c}>{c}</button>
-              ))}
-            </div>
             <button className="icon-btn" onClick={() => setSearch((s) => !s)} aria-label="Rechercher des produits"><SearchIcon /></button>
             <button className={`icon-btn bag-btn ${bump ? "bump" : ""}`} onClick={() => setOpen(true)} aria-label={`Panier, ${count} articles`}>
               <BagIcon />
