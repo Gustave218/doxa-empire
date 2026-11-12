@@ -95,7 +95,7 @@ export function PayModal({ method, amount, title, onClose, onPaid }: {
             ) : (
               <>
                 <fieldset className="providers">
-                  <legend className="sr-only">Choisir l'opérateur</legend>
+                  <legend className="sr-only">Choisir l’opérateur</legend>
                   {PROVIDERS.map(({ id, label, Mark }) => (
                     <label key={id} className={`provider ${provider === id ? "on" : ""}`}>
                       <input type="radio" name="provider" value={id} checked={provider === id} onChange={() => setProvider(id)} className="sr-only" />

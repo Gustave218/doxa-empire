@@ -17,7 +17,7 @@ export default function CoachingPage() {
         <div className="wrap learn-hero-grid">
           <div>
             <p className="eyebrow gold">Doxa Académie · Coaching</p>
-            <h1 className="serif display-xl">Bâtissez l'entreprise<br /><em>dont vous parlez depuis longtemps.</em></h1>
+            <h1 className="serif display-xl">Bâtissez l’entreprise<br /><em>dont vous parlez depuis longtemps.</em></h1>
             <p className="lede">Cinq cours vidéo pratiques par des gens qui vendent chaque jour à Nairobi. Sur votre téléphone, à votre rythme, pour toujours.</p>
             <ul className="hero-stats">
               <li><strong>{videos.length}</strong><span>cours</span></li>

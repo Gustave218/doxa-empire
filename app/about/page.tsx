@@ -17,7 +17,7 @@ export default function AboutPage() {
         <div className="wrap narrow">
           <p className="eyebrow">À propos de Doxa Empire</p>
           <h1 className="serif display-xl">Née à Nairobi pour ceux qui <em>construisent quelque chose.</em></h1>
-          <p className="lede">Doxa a commencé avec une valise de sandales perlées et un groupe WhatsApp. Aujourd'hui, c'est une boutique, une académie et un service voyage, avec la même promesse : traiter chaque client comme un membre de la famille.</p>
+          <p className="lede">Doxa a commencé avec une valise de sandales perlées et un groupe WhatsApp. Aujourd’hui, c’est une boutique, une académie et un service voyage, avec la même promesse : traiter chaque client comme un membre de la famille.</p>
         </div>
       </section>
       <section className="wrap section about-split">
@@ -28,7 +28,7 @@ export default function AboutPage() {
         <div>
           <h2 className="serif h2">Notre histoire</h2>
           <p>Notre fondateur est arrivé au Kenya comme étudiant et a tout appris à ses dépens : trouver une chambre, ouvrir un compte bancaire, savoir comment se faire payer. Vendre des sandales maasaï faites main en ligne a payé le loyer, et les amis demandaient sans cesse comment faire.</p>
-          <p>Alors nous avons commencé à enseigner. Puis à aider les nouveaux étudiants à s'installer. Puis à sélectionner des robes pour les femmes qui achetaient nos sandales. Doxa Empire, c'est tout ce que nous aurions aimé trouver à notre arrivée.</p>
+          <p>Alors nous avons commencé à enseigner. Puis à aider les nouveaux étudiants à s’installer. Puis à sélectionner des robes pour les femmes qui achetaient nos sandales. Doxa Empire, c’est tout ce que nous aurions aimé trouver à notre arrivée.</p>
           <ul className="hero-stats dark">
             <li><strong>2 400+</strong><span>clients</span></li>
             <li><strong>600+</strong><span>arrivées accompagnées</span></li>

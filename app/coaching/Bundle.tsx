@@ -14,7 +14,7 @@ export function Bundle() {
       <div className="wrap bundle-grid">
         <div>
           <p className="eyebrow gold">Pack accès complet</p>
-          <h2 className="serif h2">Tous les cours. Un seul prix. <em>40 % d'économie.</em></h2>
+          <h2 className="serif h2">Tous les cours. Un seul prix. <em>40 % d’économie.</em></h2>
           <ul className="ticks">
             {videos.map((v) => <li key={v.slug}><CheckIcon size={16} /> {v.name}</li>)}
             <li><CheckIcon size={16} /> Communauté WhatsApp privée</li>

@@ -59,7 +59,7 @@ export default function TravelPage() {
         <div className="wrap travel-hero-inner">
           <p className="eyebrow gold">Doxa Voyage · Karibu Kenya</p>
           <h1 className="serif display-xl">Arrivez au Kenya<br /><em>comme si vous y viviez déjà.</em></h1>
-          <p className="lede">Étudiants, familles et vacanciers : nous vous accueillons à l'aéroport, trouvons votre logement, configurons votre téléphone et votre banque, et vous faisons découvrir le pays que nous aimons.</p>
+          <p className="lede">Étudiants, familles et vacanciers : nous vous accueillons à l’aéroport, trouvons votre logement, configurons votre téléphone et votre banque, et vous faisons découvrir le pays que nous aimons.</p>
           <div className="cta-row">
             <Link href="#enquire" className="btn btn-gold">Préparer mon arrivée</Link>
             <Link href="#services" className="btn btn-ghost-light">Tous les services</Link>
@@ -124,7 +124,7 @@ export default function TravelPage() {
         <div className="enquire-grid">
           <div>
             <p className="eyebrow">Demande</p>
-            <h2 className="serif h2">Dites nous d'où vous venez.</h2>
+            <h2 className="serif h2">Dites nous d’où vous venez.</h2>
             <p className="lede">Nous répondons sur WhatsApp sous 24 heures avec un plan personnalisé et un prix clair.</p>
             <div className="faq">
               {FAQ.map(([q, a]) => (

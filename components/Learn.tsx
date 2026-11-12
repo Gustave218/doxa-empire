@@ -27,7 +27,7 @@ export function VideoCard({ p, index }: { p: Product; index: number }) {
         ) : (
           <div className="locked">
             <span className="lock-chip"><LockIcon size={14} /> Verrouillé</span>
-            <button className="preview-btn" onClick={() => setWatch("preview")}><PlayIcon size={14} /> Voir l'extrait gratuit</button>
+            <button className="preview-btn" onClick={() => setWatch("preview")}><PlayIcon size={14} /> Voir l’extrait gratuit</button>
           </div>
         )}
         {p.badge && <span className="tag light">{p.badge}</span>}
@@ -69,7 +69,7 @@ function VideoModal({ title, preview, onClose }: { title: string; preview: boole
           <button className="icon-btn light" onClick={onClose} aria-label="Fermer la vidéo"><CloseIcon /></button>
         </div>
         <video src="/samples/preview.mp4" controls autoPlay playsInline />
-        <p className="small muted-light">Vidéo d'exemple. Vos vraies leçons seront diffusées ici.</p>
+        <p className="small muted-light">Vidéo d’exemple. Vos vraies leçons seront diffusées ici.</p>
       </div>
     </div>
   );

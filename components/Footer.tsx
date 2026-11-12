@@ -14,7 +14,7 @@ export function Footer() {
             <form className="newsletter" onSubmit={(e) => e.preventDefault()}>
               <label htmlFor="nl" className="sr-only">Email</label>
               <input id="nl" type="email" placeholder="Votre email pour les nouveautés" />
-              <button className="btn btn-gold">S'inscrire</button>
+              <button className="btn btn-gold">S’inscrire</button>
             </form>
           </div>
           <div className="footer-cols">
@@ -34,7 +34,7 @@ export function Footer() {
             <div>
               <h2 className="footer-h">Voyage</h2>
               <Link href="/travel#students">Étudiants</Link>
-              <Link href="/travel#settle">S'installer au Kenya</Link>
+              <Link href="/travel#settle">S’installer au Kenya</Link>
               <Link href="/travel#holidays">Vacances</Link>
               <Link href="/travel#enquire">Nous écrire</Link>
             </div>

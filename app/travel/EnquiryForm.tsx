@@ -61,7 +61,7 @@ export function EnquiryForm() {
         <div className="field"><label htmlFor="f-whatsapp">WhatsApp</label><input id="f-whatsapp" name="whatsapp" type="tel" autoComplete="tel" placeholder="+243 …" {...inv("whatsapp")} />{err("whatsapp")}</div>
         <div className="field"><label htmlFor="f-email">Email</label><input id="f-email" name="email" type="email" autoComplete="email" {...inv("email")} />{err("email")}</div>
         {type === "Étudiant" && <div className="field"><label htmlFor="f-school">École et programme</label><input id="f-school" name="school" placeholder="par exemple USIU Africa, BBA" /></div>}
-        <div className="field"><label htmlFor="f-arrival">Date d'arrivée</label><input id="f-arrival" name="arrival" type="date" /></div>
+        <div className="field"><label htmlFor="f-arrival">Date d’arrivée</label><input id="f-arrival" name="arrival" type="date" /></div>
       </div>
       <fieldset className="field checks" id="f-services" tabIndex={-1} {...inv("services")}>
         <legend>Comment pouvons nous aider ?</legend>
@@ -72,8 +72,8 @@ export function EnquiryForm() {
       </fieldset>
       <div className="field"><label htmlFor="f-message">Dites nous en plus (facultatif)</label><textarea id="f-message" name="message" rows={3} /></div>
       <div className="hp" aria-hidden="true"><label>Laisser vide<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
-      <p className="hint">Merci de ne pas envoyer de passeport ni de pièce d'identité via ce formulaire.</p>
-      {state === "failed" && <p className="error" role="alert">L'envoi a échoué. Réessayez ou écrivez nous sur WhatsApp.</p>}
+      <p className="hint">Merci de ne pas envoyer de passeport ni de pièce d’identité via ce formulaire.</p>
+      {state === "failed" && <p className="error" role="alert">L’envoi a échoué. Réessayez ou écrivez nous sur WhatsApp.</p>}
       <button className="btn btn-gold btn-block" disabled={state === "sending"}>{state === "sending" ? "Envoi…" : "Envoyer la demande"}</button>
     </form>
   );

@@ -26,12 +26,12 @@ export default function Home() {
         <div className="wrap hero-grid">
           <div className="hero-copy">
             <h1 className="serif display-xxl">Doxa Empire<br /><em>Mode, formation et voyage.</em></h1>
-            <p className="lede">Doxa Empire, c'est une maison avec quatre portes : une boutique de mode, une académie business, une bibliothèque numérique et un service voyage pour tous ceux qui font du Kenya leur nouveau chez eux.</p>
+            <p className="lede">Doxa Empire, c’est une maison avec quatre portes : une boutique de mode, une académie business, une bibliothèque numérique et un service voyage pour tous ceux qui font du Kenya leur nouveau chez eux.</p>
             <div className="cta-row">
               <Link href="/shop" className="btn">Voir la collection</Link>
               <Link href="#services" className="btn btn-outline">Nos services</Link>
             </div>
-            <p className="hero-rating"><StarIcon /><StarIcon /><StarIcon /><StarIcon /><StarIcon /> <span>Plus de 2 400 clients satisfaits en Afrique de l'Est</span></p>
+            <p className="hero-rating"><StarIcon /><StarIcon /><StarIcon /><StarIcon /><StarIcon /> <span>Plus de 2 400 clients satisfaits en Afrique de l’Est</span></p>
           </div>
           <div className="hero-art">
             <div className="hero-img a">
@@ -104,7 +104,7 @@ export default function Home() {
           <div>
             <p className="eyebrow gold">02 · Coaching</p>
             <h2 className="serif h2">Apprenez avec ceux qui <em>vendent chaque jour.</em></h2>
-            <p className="lede light">De votre première vente en ligne à l'importation depuis le Bangladesh, chaque cours est pratique, local et pensé pour votre téléphone.</p>
+            <p className="lede light">De votre première vente en ligne à l’importation depuis le Bangladesh, chaque cours est pratique, local et pensé pour votre téléphone.</p>
             <Link href="/coaching" className="btn btn-gold">Voir tous les cours</Link>
           </div>
           <ul className="course-list">
@@ -126,14 +126,14 @@ export default function Home() {
         <Link href="/ebooks" className="duo-card books">
           <p className="eyebrow">03 · Ebooks</p>
           <h2 className="serif h2">Une bibliothèque pour bâtisseurs</h2>
-          <p className="muted">{ebooks.length} guides sur les prix, la vente sur WhatsApp, l'approvisionnement et la comptabilité. Téléchargement immédiat.</p>
+          <p className="muted">{ebooks.length} guides sur les prix, la vente sur WhatsApp, l’approvisionnement et la comptabilité. Téléchargement immédiat.</p>
           <div className="duo-covers">{ebooks.slice(0, 4).map((e) => <EbookCover key={e.slug} p={e} />)}</div>
           <span className="link-arrow">Voir les ebooks</span>
         </Link>
         <Link href="/travel" className="duo-card travel">
           <p className="eyebrow gold">04 · Voyage et installation</p>
           <h2 className="serif h2">Karibu Kenya</h2>
-          <p>Étudiants, familles qui s'installent et vacanciers. Accueil à l'aéroport, logement, carte SIM, banque et safaris.</p>
+          <p>Étudiants, familles qui s’installent et vacanciers. Accueil à l’aéroport, logement, carte SIM, banque et safaris.</p>
           <ul className="duo-tags"><li>Étudiants</li><li>Installation</li><li>Vacances</li><li>Accueil aéroport</li><li>Logement</li></ul>
           <span className="link-arrow light">Préparer votre arrivée</span>
         </Link>

@@ -131,7 +131,7 @@ export function ProductDetail({ slug }: { slug: string }) {
         <details className="acc">
           <summary>Guide des tailles</summary>
           {p.category === "Robes"
-            ? <p>XS 6 · S 8 · M 10 · L 12 · XL 14 (UK). Entre deux tailles ? Prenez la taille au dessus pour plus d'aisance.</p>
+            ? <p>XS 6 · S 8 · M 10 · L 12 · XL 14 (UK). Entre deux tailles ? Prenez la taille au dessus pour plus d’aisance.</p>
             : <p>Pointures EU. 37 = UK 4 · 38 = UK 5 · 39 = UK 6 · 40 = UK 6.5 · 41 = UK 7 · 42 = UK 8.</p>}
         </details>
       </div>
