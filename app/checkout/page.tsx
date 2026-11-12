@@ -8,6 +8,7 @@ import { useCart } from "@/components/CartProvider";
 import { CartLines } from "@/components/CartLines";
 import { money } from "@/lib/catalog";
 import { PayButtons } from "@/components/Pay";
+import { CountrySelect } from "@/components/CountrySelect";
 import { ShieldIcon } from "@/components/Icons";
 
 export default function CheckoutPage() {
@@ -26,7 +27,8 @@ export default function CheckoutPage() {
     if (!d.name?.trim()) e.name = "Indiquez votre nom complet.";
     if (!/^\S+@\S+\.\S+$/.test(d.email || "")) e.email = "Indiquez un email valide.";
     if (!/^\+?[0-9 ]{9,16}$/.test(d.phone || "")) e.phone = "Indiquez un numéro de téléphone.";
-    if (hasPhysical && !d.area) e.area = "Choisissez une zone de livraison.";
+    if (hasPhysical && !d.country) e.country = "Choisissez votre pays.";
+    if (hasPhysical && !d.city?.trim()) e.city = "Indiquez votre ville.";
     if (hasPhysical && !d.street?.trim()) e.street = "Indiquez votre adresse.";
     setErrors(e);
     const first = Object.keys(e)[0];
@@ -80,15 +82,9 @@ export default function CheckoutPage() {
           {hasPhysical && (
             <fieldset>
               <legend className="step"><span>2</span> Livraison</legend>
-              <div className="field">
-                <label htmlFor="k-area">Zone</label>
-                <select id="k-area" name="area" defaultValue="" aria-invalid={!!errors.area}>
-                  <option value="" disabled>Choisir…</option>
-                  <option>Nairobi CBD</option><option>Westlands / Kilimani</option><option>Karen / Lang&apos;ata</option>
-                  <option>Autre quartier de Nairobi</option><option>Mombasa</option><option>Kisumu</option><option>Reste du Kenya</option>
-                </select>{err("area")}
-              </div>
-              <div className="field"><label htmlFor="k-street">Adresse, immeuble, appartement</label><input id="k-street" name="street" autoComplete="street-address" aria-invalid={!!errors.street} />{err("street")}</div>
+              <div className="field"><label htmlFor="k-country">Pays</label><CountrySelect id="k-country" name="country" invalid={!!errors.country} />{err("country")}</div>
+              <div className="field"><label htmlFor="k-city">Ville</label><input id="k-city" name="city" autoComplete="address-level2" placeholder="Nairobi, Kinshasa…" aria-invalid={!!errors.city} />{err("city")}</div>
+              <div className="field"><label htmlFor="k-street">Adresse détaillée (quartier, rue, immeuble, appartement)</label><input id="k-street" name="street" autoComplete="street-address" aria-invalid={!!errors.street} />{err("street")}</div>
               <div className="field"><label htmlFor="k-notes">Instructions de livraison (facultatif)</label><input id="k-notes" name="notes" placeholder="Code du portail, point de repère…" /></div>
             </fieldset>
           )}

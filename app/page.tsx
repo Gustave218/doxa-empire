@@ -12,13 +12,12 @@ const SERVICES = [
 ];
 
 const QUOTES = [
-  ["J'ai vendu mes 20 premières robes sur WhatsApp la semaine après la formation.", "Grace M., Nairobi"],
+  ["Grâce au cours Vendre en ligne, j’ai ouvert ma boutique et fait mes premières ventes en ligne en moins d’un mois.", "Grace M., Nairobi"],
   ["Ils m'ont accueilli à JKIA à 2 h du matin et ma chambre était prête. Je me suis senti chez moi dès le premier jour.", "Patrick K., étudiant venu de Goma"],
   ["Les sandales perlées sont encore plus belles en vrai. On me les complimente partout.", "Aisha O., Mombasa"],
 ];
 
 export default function Home() {
-  const featured = [shopProducts[1], shopProducts[4], shopProducts[0], shopProducts[6]];
   return (
     <>
       {/* ---------- Hero ---------- */}
@@ -92,9 +91,16 @@ export default function Home() {
               <p className="eyebrow">01 · Doxa Business</p>
               <h2 className="serif h2">Découvrez nos produits de qualité</h2>
             </div>
-            <Link href="/shop" className="link-arrow">Voir les {shopProducts.length} articles</Link>
+            <Link href="/shop" className="link-arrow">Visiter la boutique</Link>
           </div>
-          <div className="grid-products">{featured.map((p) => <ProductCard key={p.slug} p={p} />)}</div>
+          <div className="prod-marquee" aria-label="Nos produits">
+            <div className="prod-track">
+              {[...shopProducts, ...shopProducts].map((p, i) => (
+                <div key={p.slug + i} className="prod-slide" aria-hidden={i >= shopProducts.length}><ProductCard p={p} priority /></div>
+              ))}
+            </div>
+          </div>
+          <div className="center prod-cta"><Link href="/shop" className="btn">Visiter la boutique</Link></div>
         </div>
       </section>
 
@@ -131,6 +137,17 @@ export default function Home() {
           <span className="link-arrow">Voir les ebooks</span>
         </Link>
         <Link href="/travel" className="duo-card travel">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/travel/kenya.jpg" alt="" className="travel-bg" loading="lazy" />
+          <svg className="flight-path" viewBox="0 0 400 160" aria-hidden>
+            <path d="M10 140 C 120 20, 260 20, 390 70" fill="none" stroke="rgba(255,255,255,.7)" strokeWidth="2" strokeDasharray="6 8" />
+            <g className="plane"><path d="M0 0l14 5-14 5 3-5z" fill="#fff" /></g>
+          </svg>
+          <div className="boarding">
+            <span><small>De</small><strong>FIH</strong><em>Kinshasa</em></span>
+            <span className="boarding-mid" aria-hidden>✈</span>
+            <span><small>À</small><strong>NBO</strong><em>Nairobi</em></span>
+          </div>
           <p className="eyebrow gold">04 · Voyage et installation</p>
           <h2 className="serif h2">Karibu Kenya</h2>
           <p>Étudiants, familles qui s’installent et vacanciers. Accueil à l’aéroport, logement, carte SIM, banque et safaris.</p>

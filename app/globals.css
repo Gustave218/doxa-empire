@@ -816,3 +816,50 @@ input, select, textarea { font-size: 16px !important; }
 .ebook-more-card span { font-size: 14px; font-weight: 700; }
 @media (max-width: 560px) { .ebook-more { grid-template-columns: 1fr 1fr; } .ebook-more-card:nth-child(3) { display: none; } }
 .ebook h3 a:hover { color: var(--pink); }
+
+/* ---------- Country picker ---------- */
+.country { position: relative; }
+.country-btn { width: 100%; display: flex; align-items: center; gap: 10px; text-align: left; border: 1px solid var(--line); background: var(--white); border-radius: 12px; padding: 12px 14px; font-size: 16px; color: var(--ink); cursor: pointer; }
+.country-btn > span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.country-btn[aria-invalid="true"] { border-color: #c0362c; }
+.country-btn:focus-visible, .country-btn[aria-expanded="true"] { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(228,49,140,.18); }
+.flag { width: 22px; height: 16px; object-fit: cover; border-radius: 3px; flex: none; box-shadow: 0 0 0 1px rgba(0,0,0,.08); }
+.country-pop { position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + 6px); background: var(--white); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-lg); overflow: hidden; }
+.field .country-search, .country-search { width: 100%; border: 0; border-bottom: 1px solid var(--line); padding: 12px 14px; outline: none; background: var(--white); }
+.country-pop ul { list-style: none; margin: 0; padding: 6px; max-height: 280px; overflow-y: auto; }
+.country-pop li { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px; cursor: pointer; font-size: 15px; position: relative; }
+.country-pop li.on { background: var(--ivory); }
+.country-pop li[aria-selected="true"] { font-weight: 700; }
+.country-pop li .sep { position: absolute; left: 6px; right: 6px; bottom: -4px; height: 1px; background: var(--line); }
+.country-pop li:has(.sep) { margin-bottom: 8px; }
+
+/* ---------- Home product carousel (auto scroll right to left) ---------- */
+.prod-marquee { overflow: hidden; margin: 0 -16px; padding: 4px 0 8px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.prod-track { display: flex; width: max-content; animation: prod-scroll 45s linear infinite; }
+.prod-slide { margin-right: 18px; }
+.prod-marquee:hover .prod-track, .prod-marquee:focus-within .prod-track { animation-play-state: paused; }
+.prod-slide { width: 240px; flex: none; }
+@media (min-width: 900px) { .prod-slide { width: 280px; margin-right: 24px; } }
+@keyframes prod-scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .prod-track { animation: none; } .prod-marquee { overflow-x: auto; } }
+@media (max-width: 600px) { .prod-slide { width: 62vw; } .prod-track { animation-duration: 35s; } }
+.prod-cta { margin-top: 28px; }
+
+/* ---------- Karibu Kenya travel card ---------- */
+.duo-card.travel { isolation: isolate; justify-content: flex-end; min-height: 520px; }
+.duo-card.travel .travel-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1.4s var(--ease); }
+.duo-card.travel::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(100deg, rgba(10,10,10,.82) 0%, rgba(10,10,10,.55) 55%, rgba(10,10,10,.25) 100%), linear-gradient(0deg, rgba(10,10,10,.6), transparent 40%); }
+.duo-card.travel:hover .travel-bg { transform: scale(1.06); }
+.duo-card.travel p { color: rgba(255,255,255,.85); }
+.flight-path { position: absolute; top: auto; bottom: 70px; left: 0; width: 100%; height: 150px; z-index: 0; pointer-events: none; }
+.flight-path .plane { offset-path: path("M10 140 C 120 20, 260 20, 390 70"); offset-rotate: auto; animation: fly 7s ease-in-out infinite; }
+@keyframes fly { from { offset-distance: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } to { offset-distance: 100%; opacity: 0; } }
+.boarding { position: absolute; top: 22px; right: 22px; display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.95); color: var(--ink); border-radius: 14px; padding: 10px 16px; box-shadow: 0 10px 30px rgba(0,0,0,.25); transform: rotate(3deg); }
+.boarding span { display: grid; line-height: 1.1; text-align: center; }
+.boarding small { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+.boarding strong { font-size: 20px; font-weight: 800; letter-spacing: .02em; }
+.boarding em { font-style: normal; font-size: 11px; color: var(--muted); }
+.boarding .boarding-mid { color: var(--pink); font-size: 18px; }
+.duo-card.travel .duo-tags li { background: rgba(255,255,255,.12); backdrop-filter: blur(6px); border-color: rgba(255,255,255,.35); }
+@media (prefers-reduced-motion: reduce) { .flight-path .plane { animation: none; } }
+@media (max-width: 600px) { .duo-card.travel { min-height: 480px; padding-top: 92px !important; } .boarding { top: 16px; right: 16px; padding: 8px 12px; } .boarding strong { font-size: 17px; } }
