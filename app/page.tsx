@@ -5,7 +5,7 @@ import { EbookCover } from "@/components/Learn";
 import { ArrowIcon, PlayIcon, CapIcon, HomeIcon, SunIcon, StarIcon, CardMarks, MobileMarks } from "@/components/Icons";
 
 const SERVICES = [
-  { href: "/shop", n: "01", t: "Doxa Business", d: "Découvrez nos produits de qualité : robes élégantes, sandales en cuir et sandales maasaï faites main.", img: "/products/dress-magenta-bow.webp", cta: "Découvrir la sélection" },
+  { href: "/shop", n: "01", t: "Doxa Business", d: "Découvrez nos produits de qualité : robes élégantes, sandales en cuir et sandales maasaï faites main.", img: "/brand/doxa-logo-trimmed.png", tone: "c-shop", cta: "Découvrir la sélection" },
   { href: "/coaching", n: "02", t: "Coaching", d: "Cours vidéo pour vendre en ligne, faire du marketing et importer.", img: "/thumbs/vendre.jpg", tone: "c-coach", cta: "Voir un extrait" },
   { href: "/ebooks", n: "03", t: "Ebooks", d: "Des guides courts et pratiques à lire ce soir et appliquer demain.", img: null, tone: "c-books", cta: "Parcourir la bibliothèque" },
   { href: "/travel", n: "04", t: "Voyage et installation", d: "Accueil à l'aéroport, logement et vacances pour étudiants et familles.", img: "/travel/plane.jpg", tone: "c-travel", cta: "Préparer votre arrivée" },
