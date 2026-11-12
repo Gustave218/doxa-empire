@@ -114,3 +114,7 @@ export const CardMarks = ({ height = 22 }: M) => (
 export const MobileMarks = ({ height = 22 }: M) => (
   <span className="marks"><MpesaMark height={height} /><AirtelMark height={height} /><OrangeMark height={height} /></span>
 );
+
+export const UserIcon = ({ size, className }: P) => (
+  <svg {...base(size)} className={className}><circle cx="12" cy="8" r="4" /><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" /></svg>
+);

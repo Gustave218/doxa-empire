@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/components/AuthProvider";
 import { useCart } from "@/components/CartProvider";
 import { CartLines } from "@/components/CartLines";
 import { money } from "@/lib/catalog";
@@ -12,6 +14,10 @@ export default function CheckoutPage() {
   const { lines, subtotal, delivery, total, currency, hasPhysical, clear, ready } = useCart();
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [paid, setPaid] = useState(false);
+  const auth = useAuth();
+  const router = useRouter();
+  const mustLogin = auth.configured && auth.ready && !auth.user;
+  useEffect(() => { if (mustLogin && !paid) router.replace("/connexion?next=/checkout"); }, [mustLogin, paid, router]);
 
   function validate() {
     const form = document.getElementById("details") as HTMLFormElement;
@@ -28,7 +34,7 @@ export default function CheckoutPage() {
     return !first;
   }
 
-  if (!ready) return null;
+  if (!ready || !auth.ready || (mustLogin && !paid)) return null;
 
   if (paid) {
     return (
@@ -64,10 +70,10 @@ export default function CheckoutPage() {
         <form id="details" className="checkout-form" noValidate onSubmit={(e) => e.preventDefault()}>
           <fieldset>
             <legend className="step"><span>1</span> Coordonnées</legend>
-            <div className="field"><label htmlFor="k-name">Nom complet</label><input id="k-name" name="name" autoComplete="name" aria-invalid={!!errors.name} />{err("name")}</div>
+            <div className="field"><label htmlFor="k-name">Nom complet</label><input id="k-name" name="name" autoComplete="name" defaultValue={auth.user?.name} aria-invalid={!!errors.name} />{err("name")}</div>
             <div className="two">
-              <div className="field"><label htmlFor="k-email">Email</label><input id="k-email" name="email" type="email" autoComplete="email" aria-invalid={!!errors.email} />{err("email")}</div>
-              <div className="field"><label htmlFor="k-phone">Téléphone / WhatsApp</label><input id="k-phone" name="phone" type="tel" autoComplete="tel" placeholder="+254 7…" aria-invalid={!!errors.phone} />{err("phone")}</div>
+              <div className="field"><label htmlFor="k-email">Email</label><input id="k-email" name="email" type="email" autoComplete="email" defaultValue={auth.user?.email} aria-invalid={!!errors.email} />{err("email")}</div>
+              <div className="field"><label htmlFor="k-phone">Téléphone / WhatsApp</label><input id="k-phone" name="phone" type="tel" autoComplete="tel" defaultValue={auth.user?.phone} placeholder="+254 7…" aria-invalid={!!errors.phone} />{err("phone")}</div>
             </div>
           </fieldset>
 

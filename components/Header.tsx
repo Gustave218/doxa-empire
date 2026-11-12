@@ -5,7 +5,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { searchAll } from "@/lib/search";
 import { useCart } from "./CartProvider";
-import { BagIcon, CloseIcon, MenuIcon, SearchIcon } from "./Icons";
+import { BagIcon, CloseIcon, MenuIcon, SearchIcon, UserIcon } from "./Icons";
+import { useAuth } from "./AuthProvider";
 
 export const NAV = [
   { href: "/shop", label: "Boutique" },
@@ -18,6 +19,7 @@ export const NAV = [
 
 export function Header() {
   const { count, setOpen, ready } = useCart();
+  const { user } = useAuth();
   const path = usePathname();
   const router = useRouter();
   const [menu, setMenu] = useState(false);
@@ -51,6 +53,7 @@ export function Header() {
           </nav>
           <div className="header-actions">
             <button className="icon-btn" onClick={() => setSearch((s) => !s)} aria-label="Rechercher des produits"><SearchIcon /></button>
+            <Link href={user ? "/compte" : "/connexion"} className="icon-btn" aria-label={user ? "Mon compte" : "Se connecter"}>{user?.avatar ? <img src={user.avatar} alt="" className="avatar" referrerPolicy="no-referrer" /> : <UserIcon />}</Link>
             <button className={`icon-btn bag-btn ${bump ? "bump" : ""}`} onClick={() => setOpen(true)} aria-label={`Panier, ${count} articles`}>
               <BagIcon />
               {ready && count > 0 && <span className="badge">{count}</span>}
@@ -95,6 +98,7 @@ export function Header() {
         <nav className="menu-links" aria-label="Mobile">
           <Link href="/">Accueil</Link>
           {NAV.map((n) => <Link key={n.href} href={n.href}>{n.label}</Link>)}
+          <Link href={user ? "/compte" : "/connexion"}>{user ? "Mon compte" : "Connexion / Inscription"}</Link>
           <Link href="/cart">Panier ({ready ? count : 0})</Link>
         </nav>
       </aside>
