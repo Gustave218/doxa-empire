@@ -88,7 +88,7 @@ export const products: Product[] = [
     description: "Dessus en cuir grainé fini main avec anneau croisé, semelle intérieure en cuir rembourrée et semelle en caoutchouc cousue.",
     details: ["Dessus en cuir véritable", "Semelle intérieure rembourrée", "Semelle caoutchouc cousue", "Taille normalement"],
     images: ["/products/slide-olive.webp"],
-    colours: ["Olive / Crème"], sizes: shoe([3, 5, 6, 4, 3, 2]), badge: "Meilleure vente", rating: 4.8, reviews: 211,
+    colours: ["Olive / Crème"], sizes: shoe([3, 5, 6, 4, 3, 2]), rating: 4.8, reviews: 211,
   },
   {
     slug: "mint-cloud-flip-flop", type: "physical", category: "Sandales",
@@ -150,7 +150,6 @@ export const products: Product[] = [
     description: "Créez votre catalogue WhatsApp Business, photographiez vos produits avec votre téléphone et concluez vos premières ventes en ligne.",
     minutes: 48, level: "Débutant",
     chapters: ["Choisir quoi vendre", "Photos produits au téléphone", "Catalogue WhatsApp Business", "Encaisser avec M-Pesa", "Vos 10 premières commandes"],
-    badge: "Meilleure vente",
   },
   {
     slug: "how-to-market", type: "video", thumb: "/thumbs/marketing.jpg",
@@ -199,7 +198,7 @@ export const products: Product[] = [
     short: "Testez votre idée auprès de vrais acheteurs avant de dépenser.",
     description: "Un guide pratique pour vérifier la demande, faire une première offre et être payé.",
     cover: { bg: "#111111", fg: "#ffffff", accent: "#e4318c" }, pages: 84,
-    chapters: ["Trouver une idée qui répond à un vrai besoin", "Tester la demande sans dépenser", "Construire une première offre simple", "Fixer un prix de lancement", "Encaisser vos premiers paiements", "Transformer vos premiers clients en ambassadeurs"], badge: "Meilleure vente",
+    chapters: ["Trouver une idée qui répond à un vrai besoin", "Tester la demande sans dépenser", "Construire une première offre simple", "Fixer un prix de lancement", "Encaisser vos premiers paiements", "Transformer vos premiers clients en ambassadeurs"],
   },
   {
     slug: "selling-on-whatsapp", type: "ebook", thumb: "/books/whatsapp.jpg",

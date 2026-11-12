@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { shopProducts, videos, ebooks } from "@/lib/catalog";
+import { shopProducts, ebooks } from "@/lib/catalog";
 import { ProductCard } from "@/components/ProductCard";
 import { EbookCover } from "@/components/Learn";
-import { ArrowIcon, PlayIcon, LockIcon, CapIcon, HomeIcon, SunIcon, StarIcon, CardMarks, MobileMarks } from "@/components/Icons";
+import { ArrowIcon, PlayIcon, CapIcon, HomeIcon, SunIcon, StarIcon, CardMarks, MobileMarks } from "@/components/Icons";
 
 const SERVICES = [
   { href: "/shop", n: "01", t: "Doxa Business", d: "Découvrez nos produits de qualité : robes élégantes, sandales en cuir et sandales maasaï faites main.", img: "/products/dress-magenta-bow.webp", cta: "Découvrir la sélection" },
@@ -25,7 +25,7 @@ export default function Home() {
         <div className="wrap hero-grid">
           <div className="hero-copy">
             <h1 className="serif display-xxl">Doxa Empire<br /><em>Mode, formation et voyage.</em></h1>
-            <p className="lede">Doxa Empire, c’est une maison avec quatre portes : une boutique de mode, une académie business, une bibliothèque numérique et un service voyage pour tous ceux qui font du Kenya leur nouveau chez eux.</p>
+            <p className="lede">Des vêtements de qualité, des formations pour lancer et faire grandir votre business, et un accompagnement complet pour étudier, vivre ou voyager au Kenya. Tout au même endroit.</p>
             <div className="cta-row">
               <Link href="/shop" className="btn">Voir la collection</Link>
               <Link href="#services" className="btn btn-outline">Nos services</Link>
@@ -44,7 +44,7 @@ export default function Home() {
             <div className="hero-float">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/products/slide-olive.webp" alt="" />
-              <div><p className="small muted">Meilleure vente</p><p className="serif">Sandale en cuir olive</p></div>
+              <div><p className="serif">Sandale en cuir olive</p></div>
             </div>
           </div>
         </div>
@@ -107,16 +107,6 @@ export default function Home() {
             <p className="lede light">De votre première vente en ligne à l’importation depuis le Bangladesh, chaque cours est pratique, local et pensé pour votre téléphone.</p>
             <Link href="/coaching" className="btn btn-gold">Voir tous les cours</Link>
           </div>
-          <ul className="course-list">
-            {videos.map((v) => (
-              <li key={v.slug}>
-                <Link href={`/coaching#${v.slug}`}>
-                  <span className="cl-t">{v.name}<small>{v.minutes} min · {v.level}</small></span>
-                  <LockIcon size={16} />
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
