@@ -872,3 +872,4 @@ input, select, textarea { font-size: 16px !important; }
 .prod-row .card-name { font-size: 14px; }
 .powered { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .powered:hover { color: var(--pink); }
+.powered-line { text-align: center; font-size: 13px; opacity: .75; padding: 18px 0 6px; margin: 0; border-top: 1px solid rgba(255,255,255,.1); }
