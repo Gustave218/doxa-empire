@@ -38,7 +38,6 @@ export function VideoCard({ p, index }: { p: Product; index: number }) {
             <button className="preview-btn" onClick={() => setWatch("preview")}><PlayIcon size={14} /> Voir l’extrait gratuit</button>
           </div>
         )}
-        {p.badge && <span className="tag light">{p.badge}</span>}
       </div>
       <div className="video-body">
         <h3 className="serif h3">{p.name}</h3>
@@ -68,7 +67,7 @@ export function VideoCard({ p, index }: { p: Product; index: number }) {
   );
 }
 
-function VideoModal({ title, preview, onClose }: { title: string; preview: boolean; onClose: () => void }) {
+export function VideoModal({ title, preview, onClose }: { title: string; preview: boolean; onClose: () => void }) {
   return (
     <div className="modal-scrim dark" onClick={onClose}>
       <div className="video-modal" role="dialog" aria-modal="true" aria-label={title} onClick={(e) => e.stopPropagation()}>
@@ -129,5 +128,22 @@ export function EbookCard({ p }: { p: Product }) {
         )}
       </div>
     </article>
+  );
+}
+
+export function HeroPlayer({ p }: { p: Product }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="hero-player">
+      <button className="hero-player-screen" onClick={() => setOpen(true)} aria-label={`Voir l’extrait : ${p.name}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={p.thumb} alt="" />
+        <span className="hero-play"><PlayIcon size={30} /></span>
+      </button>
+      <div className="hero-player-bar" aria-hidden>
+        <PlayIcon size={14} /><span className="hp-track"><span /></span><span className="hp-time">02:14 / {p.minutes}:00</span>
+      </div>
+      {open && <VideoModal title={p.name} preview onClose={() => setOpen(false)} />}
+    </div>
   );
 }
