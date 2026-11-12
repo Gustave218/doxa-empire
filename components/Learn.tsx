@@ -18,9 +18,16 @@ export function VideoCard({ p, index }: { p: Product; index: number }) {
 
   return (
     <article className="video-card" id={p.slug}>
-      <div className="video-thumb" style={{ background: `linear-gradient(135deg, ${a}, ${b})` }}>
-        <span className="video-num">0{index + 1}</span>
-        <p className="video-thumb-title serif">{p.name}</p>
+      <div className={`video-thumb ${p.thumb ? "has-img" : ""}`} style={p.thumb ? undefined : { background: `linear-gradient(135deg, ${a}, ${b})` }}>
+        {p.thumb ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={p.thumb} alt={p.name} className="video-thumb-img" loading="lazy" />
+        ) : (
+          <>
+            <span className="video-num">0{index + 1}</span>
+            <p className="video-thumb-title serif">{p.name}</p>
+          </>
+        )}
         <div className="video-thumb-meta"><span>{p.minutes} min</span><span>{p.chapters?.length} leçons</span><span>{p.level}</span></div>
         {owned ? (
           <button className="play-big" onClick={() => setWatch("full")} aria-label={`Lire ${p.name}`}><PlayIcon size={26} /></button>

@@ -30,6 +30,7 @@ export type Product = {
   minutes?: number;
   level?: string;
   chapters?: string[];
+  thumb?: string;
 };
 
 const shoe = (s: number[]) => ["37", "38", "39", "40", "41", "42"].map((size, i) => ({ size, stock: s[i] ?? 0 }));
@@ -142,7 +143,7 @@ export const products: Product[] = [
 
   // ---------------- Coaching videos ----------------
   {
-    slug: "start-selling-online", type: "video",
+    slug: "start-selling-online", type: "video", thumb: "/thumbs/vendre.jpg",
     name: "Commencer à vendre en ligne",
     price: { KES: 3500, USD: 27 },
     short: "Ouvrez votre boutique en ligne en 7 jours avec WhatsApp, Instagram et TikTok.",
@@ -152,7 +153,7 @@ export const products: Product[] = [
     badge: "Meilleure vente",
   },
   {
-    slug: "how-to-market", type: "video",
+    slug: "how-to-market", type: "video", thumb: "/thumbs/marketing.jpg",
     name: "Promouvoir vos produits",
     price: { KES: 4000, USD: 31 },
     short: "Contenu, publicité et bouche à oreille qui vous amènent des acheteurs.",
@@ -161,7 +162,7 @@ export const products: Product[] = [
     chapters: ["Connaître votre acheteur", "Du contenu qui vend", "Votre première pub payante", "Influenceurs à petit budget", "Parrainage et avis"],
   },
   {
-    slug: "how-to-start-a-business", type: "video",
+    slug: "how-to-start-a-business", type: "video", thumb: "/thumbs/business.jpg",
     name: "Créer votre entreprise",
     price: { KES: 4500, USD: 35 },
     short: "De l'idée à une entreprise enregistrée, bien tarifée et rentable.",
@@ -171,7 +172,7 @@ export const products: Product[] = [
     badge: "Le plus complet",
   },
   {
-    slug: "how-to-buy-from-bangladesh", type: "video",
+    slug: "how-to-buy-from-bangladesh", type: "video", thumb: "/thumbs/payer.jpg",
     name: "Acheter au Bangladesh",
     price: { KES: 5500, USD: 42 },
     short: "Achetez vos vêtements directement aux usines de Dacca et expédiez au Kenya.",
@@ -181,7 +182,7 @@ export const products: Product[] = [
     badge: "Nouveau",
   },
   {
-    slug: "how-to-import-from-china", type: "video",
+    slug: "how-to-import-from-china", type: "video", thumb: "/thumbs/chine.jpg",
     name: "Importer de Chine",
     price: { KES: 5500, USD: 42 },
     short: "Alibaba, 1688, agents et fret maritime expliqués pas à pas.",

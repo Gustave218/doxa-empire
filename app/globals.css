@@ -746,3 +746,13 @@ html, body { overflow-x: clip; max-width: 100%; }
   .aud { padding: 26px 20px; }
   .cross-link { padding: 22px 18px; }
 }
+
+/* ---------- Video thumbnails ---------- */
+.video-thumb.has-img { aspect-ratio: 16/9; min-height: 0; background: #000; justify-content: flex-end; }
+.video-thumb-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.video-card:hover .video-thumb-img { transform: scale(1.04); }
+.video-thumb.has-img::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.75), transparent 45%); z-index: 1; pointer-events: none; }
+.video-thumb.has-img .video-thumb-meta { order: 2; margin-top: 8px; color: rgba(255,255,255,.85); }
+.video-thumb.has-img .locked, .video-thumb.has-img .play-big { order: 1; margin-top: auto; }
+.video-thumb.has-img .tag { z-index: 2; }
+@media (max-width: 480px) { .video-thumb.has-img { padding: 12px; } .video-thumb.has-img .video-thumb-meta { font-size: 11.5px; gap: 10px; } }
