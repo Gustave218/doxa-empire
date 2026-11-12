@@ -84,6 +84,14 @@ function VideoModal({ title, preview, onClose }: { title: string; preview: boole
 
 export function EbookCover({ p, size = "md" }: { p: Product; size?: "md" | "lg" }) {
   const c = p.cover!;
+  if (p.thumb) {
+    return (
+      <div className={`cover cover-${size} has-img`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={p.thumb} alt={p.name} loading="lazy" />
+      </div>
+    );
+  }
   return (
     <div className={`cover cover-${size}`} style={{ background: c.bg, color: c.fg }}>
       <span className="cover-brand" style={{ color: c.accent }}>Doxa Empire</span>

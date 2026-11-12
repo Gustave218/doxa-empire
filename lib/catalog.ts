@@ -193,7 +193,7 @@ export const products: Product[] = [
 
   // ---------------- Ebooks ----------------
   {
-    slug: "from-idea-to-first-sale", type: "ebook",
+    slug: "from-idea-to-first-sale", type: "ebook", thumb: "/books/premiere-vente.jpg",
     name: "De l'idée à la première vente",
     price: { KES: 1500, USD: 12 },
     short: "Testez votre idée auprès de vrais acheteurs avant de dépenser.",
@@ -201,7 +201,7 @@ export const products: Product[] = [
     cover: { bg: "#111111", fg: "#ffffff", accent: "#e4318c" }, pages: 84, badge: "Meilleure vente",
   },
   {
-    slug: "selling-on-whatsapp", type: "ebook",
+    slug: "selling-on-whatsapp", type: "ebook", thumb: "/books/whatsapp.jpg",
     name: "Vendre sur WhatsApp",
     price: { KES: 1200, USD: 9 },
     short: "Catalogues, statuts et réponses qui concluent des ventes.",
@@ -209,7 +209,7 @@ export const products: Product[] = [
     cover: { bg: "#e4318c", fg: "#ffffff", accent: "#111111" }, pages: 62, badge: "Nouveau",
   },
   {
-    slug: "the-bangladesh-sourcing-guide", type: "ebook",
+    slug: "the-bangladesh-sourcing-guide", type: "ebook", thumb: "/books/bangladesh.jpg",
     name: "Le guide d'achat au Bangladesh",
     price: { KES: 2500, USD: 19 },
     short: "Listes de fournisseurs, prix de référence et checklists d'expédition.",
@@ -217,7 +217,7 @@ export const products: Product[] = [
     cover: { bg: "#f6f6f7", fg: "#111111", accent: "#e4318c" }, pages: 112,
   },
   {
-    slug: "pricing-without-fear", type: "ebook",
+    slug: "pricing-without-fear", type: "ebook", thumb: "/books/prix.jpg",
     name: "Fixer ses prix sans peur",
     price: { KES: 1200, USD: 9 },
     short: "Trouvez un prix qui couvre vos coûts et vous rémunère.",
@@ -225,7 +225,7 @@ export const products: Product[] = [
     cover: { bg: "#2b2b2b", fg: "#ffffff", accent: "#ff4fa3" }, pages: 56,
   },
   {
-    slug: "marketing-on-a-shoestring", type: "ebook",
+    slug: "marketing-on-a-shoestring", type: "ebook", thumb: "/books/marketing.jpg",
     name: "Le marketing à petit budget",
     price: { KES: 1500, USD: 12 },
     short: "50 façons peu coûteuses de faire connaître votre marque.",
@@ -233,7 +233,7 @@ export const products: Product[] = [
     cover: { bg: "#ffd6ea", fg: "#111111", accent: "#b0145f" }, pages: 74,
   },
   {
-    slug: "simple-books-small-shops", type: "ebook",
+    slug: "simple-books-small-shops", type: "ebook", thumb: "/books/comptabilite.jpg",
     name: "La comptabilité simple des petites boutiques",
     price: { KES: 1000, USD: 8 },
     short: "Suivez chaque shilling dans un carnet ou une feuille.",
