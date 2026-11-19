@@ -1,0 +1,19 @@
+.logo {
+  min-width: 0;
+  justify-self: start;
+}
+
+.logoImage {
+  display: block;
+  width: auto;
+  height: 48px;
+  max-width: min(230px, 30vw);
+  object-fit: contain;
+}
+
+@media (max-width: 639px) {
+  .logoImage {
+    height: 38px;
+    max-width: min(150px, 32vw);
+  }
+}
