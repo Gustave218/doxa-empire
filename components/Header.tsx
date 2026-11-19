@@ -7,6 +7,7 @@ import { searchAll } from "@/lib/search";
 import { useCart } from "./CartProvider";
 import { BagIcon, CloseIcon, MenuIcon, SearchIcon, UserIcon } from "./Icons";
 import { useAuth } from "./AuthProvider";
+import styles from "./HeaderLogo.module.css";
 
 export const NAV = [
   { href: "/shop", label: "Boutique" },
@@ -41,10 +42,9 @@ export function Header() {
       <header className="header">
         <div className="header-row">
           <button className="icon-btn nav-toggle" onClick={() => setMenu(true)} aria-label="Ouvrir le menu"><MenuIcon /></button>
-          <Link href="/" className="logo" aria-label="Accueil Doxa Empire">
+          <Link href="/" className={`logo ${styles.logo}`} aria-label="Accueil Doxa Empire">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/doxa-logo-trimmed.png" alt="" />
-            <span className="logo-word">Doxa<em>Empire</em></span>
+            <img className={styles.logoImage} src="/brand/doxa-business-logo-screenshot.jpg" alt="Doxa Empire" />
           </Link>
           <nav className="nav" aria-label="Principal">
             {NAV.map((n) => (
@@ -69,7 +69,7 @@ export function Header() {
               setSearch(false);
             }}>
               <SearchIcon size={18} />
-              <input name="q" autoFocus value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Rechercher sur le site : robes, cours, ebooks, voyage…" aria-label="Rechercher sur le site" autoComplete="off" enterKeyHint="search" />
+              <input name="q" autoFocus value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Rechercher sur le site : robes, cours, ebooks, voyage…" aria-label="Rechercher sur le site" />
               <button type="button" className="icon-btn" onClick={() => setSearch(false)} aria-label="Fermer la recherche"><CloseIcon size={18} /></button>
             </form>
             {query.trim() && (
