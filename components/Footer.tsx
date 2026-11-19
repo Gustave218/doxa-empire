@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import styles from "./SocialLinks.module.css";
 import { CardMarks, MobileMarks } from "./Icons";
 
 function TikTokIcon() {
@@ -28,39 +29,30 @@ function YouTubeIcon() {
 }
 
 const socialLinks = [
-  { name: "TikTok", href: "https://www.tiktok.com/@doxabusiness?_r=1&_t=ZS-9BL4XT7Lmzc", Icon: TikTokIcon, color: "#111111" },
-  { name: "Facebook", href: "https://www.facebook.com/share/1Cb2EvCEi2/", Icon: FacebookIcon, color: "#1877F2" },
-  { name: "YouTube", href: "https://youtube.com/@doxaempire-venteengros8149?si=76JBeekFrhKkouue", Icon: YouTubeIcon, color: "#FF0000" },
+  { name: "TikTok", href: "https://www.tiktok.com/@doxabusiness?_r=1&_t=ZS-9BL4XT7Lmzc", Icon: TikTokIcon },
+  { name: "Facebook", href: "https://www.facebook.com/share/1Cb2EvCEi2/", Icon: FacebookIcon },
+  { name: "YouTube", href: "https://youtube.com/@doxaempire-venteengros8149?si=76JBeekFrhKkouue", Icon: YouTubeIcon },
 ];
 
 export function Footer() {
   return (
     <>
-      <section className="social-section" aria-labelledby="social-heading">
-        <div className="wrap social-inner">
-          <div>
-            <p className="eyebrow">Restons connectés</p>
-            <h2 id="social-heading" className="serif h3">Suivez Doxa Empire</h2>
-          </div>
-          <nav className="social-links" aria-label="Réseaux sociaux">
-            {socialLinks.map(({ name, href, Icon, color }) => (
-              <a
-                key={name}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-                aria-label={`Suivre Doxa Empire sur ${name}`}
-              >
-                <span className="social-icon" style={{ "--social-color": color } as React.CSSProperties}>
-                  <Icon />
-                </span>
-                <span>{name}</span>
-                <span className="social-arrow" aria-hidden="true">↗</span>
-              </a>
-            ))}
-          </nav>
-        </div>
+      <section className={styles.socialSection} aria-label="Réseaux sociaux">
+        <nav className={styles.socialLinks} aria-label="Suivez Doxa Empire sur les réseaux sociaux">
+          {socialLinks.map(({ name, href, Icon }) => (
+            <a
+              key={name}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+              aria-label={`Suivre Doxa Empire sur ${name}`}
+              title={name}
+            >
+              <Icon />
+            </a>
+          ))}
+        </nav>
       </section>
 
       <footer className="footer">
