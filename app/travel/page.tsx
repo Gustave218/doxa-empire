@@ -62,8 +62,8 @@ export default function TravelPage() {
             <Link href="#services" className="btn btn-ghost-light">Tous les services</Link>
           </div>
           <ul className="travel-proof">
-            <li><strong>2</strong><span>formules d'accompagnement</span></li>
-            <li><strong>1 mois</strong><span>d'accompagnement famille</span></li>
+            <li><strong>2</strong><span>formules d&apos;accompagnement</span></li>
+            <li><strong>1 mois</strong><span>d&apos;accompagnement famille</span></li>
             <li><strong>Kenya</strong><span>un hôte local à vos côtés</span></li>
           </ul>
         </div>
